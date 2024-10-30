@@ -5,17 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homeverse - Find your dream house</title>
+  <title>DAGAR BUILDERS - The Key To Your Home</title>
 
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="" type="image/svg+xml">
+  <link rel="shortcut icon" href="/Assets/images/Logo.svg" type="image/svg+xml">
 
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="/Assets/css/style.css">
 
   <!-- 
     - google font link
@@ -37,69 +37,11 @@
 
     <div class="overlay" data-overlay></div>
 
-    <div class="header-top">
-      <div class="container">
-
-        <ul class="header-top-list">
-
-          <li>
-            <a href="mailto:info@homeverse.com" class="header-top-link">
-              <ion-icon name="mail-outline"></ion-icon>
-
-              <span>info@homeverse.com</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="header-top-link">
-              <ion-icon name="location-outline"></ion-icon>
-
-              <address>15/A, Nest Tower, NYC</address>
-            </a>
-          </li>
-
-        </ul>
-
-        <div class="wrapper">
-          <ul class="header-top-social-list">
-
-            <li>
-              <a href="#" class="header-top-social-link">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="header-top-social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="header-top-social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="header-top-social-link">
-                <ion-icon name="logo-pinterest"></ion-icon>
-              </a>
-            </li>
-
-          </ul>
-
-          <button class="header-top-btn">Add Listing</button>
-        </div>
-
-      </div>
-    </div>
-
     <div class="header-bottom">
       <div class="container">
 
         <a href="#" class="logo">
-          <img src="./assets/images/logo.png" alt="Homeverse logo">
+          <img src="./assets/images/logo_1.png" alt="Dagar Builders logo">
         </a>
 
         <nav class="navbar" data-navbar>
@@ -107,7 +49,7 @@
           <div class="navbar-top">
 
             <a href="#" class="logo">
-              <img src="./assets/images/logo.png" alt="Homeverse logo">
+              <img src="./assets/images/logo_1.png" alt="Dagar Builders logo">
             </a>
 
             <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
@@ -150,22 +92,34 @@
 
         <div class="header-bottom-actions">
 
-          <button class="header-bottom-actions-btn" aria-label="Search">
+          <button class="header-bottom-actions-btn" aria-label="Search" id="search-btn">
             <ion-icon name="search-outline"></ion-icon>
 
             <span>Search</span>
+            
+          </button>
+
+          <div class="search-popover" id="search-popover">
+            <div class="search-container">
+                <input type="text" placeholder="Search Locality..." aria-label="Search" />
+                <button class="search-submit-btn">
+                  <ion-icon name="search-outline" class="search-icon"></ion-icon>
+                  <span>Search</span>
+                </button>
+            </div>
+        </div>
+        
+
+          <button class="header-bottom-actions-btn" aria-label="Wishlist">
+            <ion-icon name="heart-outline"></ion-icon>
+
+            <span>Wishlist</span>
           </button>
 
           <button class="header-bottom-actions-btn" aria-label="Profile">
             <ion-icon name="person-outline"></ion-icon>
 
             <span>Profile</span>
-          </button>
-
-          <button class="header-bottom-actions-btn" aria-label="Cart">
-            <ion-icon name="cart-outline"></ion-icon>
-
-            <span>Cart</span>
           </button>
 
           <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
@@ -203,10 +157,10 @@
               <span>Real Estate Agency</span>
             </p>
 
-            <h2 class="h1 hero-title">Find Your Dream House By Us</h2>
+            <h2 class="h1 hero-title">Find Your Forever Home</h2>
 
             <p class="hero-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
+              <!-- Hero Text -->
             </p>
 
             <button class="btn">Make An Enquiry</button>
@@ -214,7 +168,7 @@
           </div>
 
           <figure class="hero-banner">
-            <img src="./assets/images/hero-banner.png" alt="Modern house model" class="w-100">
+            <img src="/Assets/images/banner.png" alt="Modern house model" class="w-100">
           </figure>
 
         </div>
@@ -315,78 +269,62 @@
           <ul class="service-list">
 
             <li>
-              <div class="service-card">
+              <a href=""><div class="service-card">
 
                 <div class="card-icon">
                   <img src="./assets/images/service-1.png" alt="Service icon">
                 </div>
 
                 <h3 class="h3 card-title">
-                  <a href="#">Buy a home</a>
+                  Buy a home
                 </h3>
 
                 <p class="card-text">
-                  over 1 million+ homes for sale available on the website, we can match you with a house you will want
-                  to call home.
+                  <!-- text -->
                 </p>
-
-                <a href="#" class="card-link">
-                  <span>Find A Home</span>
-
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </a>
-
-              </div>
+              
+                </div>
+              </a>
             </li>
 
             <li>
-              <div class="service-card">
+              <a href="#">
+                <div class="service-card">
 
-                <div class="card-icon">
-                  <img src="./assets/images/service-2.png" alt="Service icon">
+                  <div class="card-icon">
+                    <img src="./assets/images/service-2.png" alt="Service icon">
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    Rent a home
+                  </h3>
+
+                  <p class="card-text">
+                    <!-- text -->
+                  </p>
+
                 </div>
-
-                <h3 class="h3 card-title">
-                  <a href="#">Rent a home</a>
-                </h3>
-
-                <p class="card-text">
-                  over 1 million+ homes for sale available on the website, we can match you with a house you will want
-                  to call home.
-                </p>
-
-                <a href="#" class="card-link">
-                  <span>Find A Home</span>
-
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </a>
-
-              </div>
+              </a>
             </li>
 
             <li>
-              <div class="service-card">
+              <a href="#">
+                <div class="service-card">
 
-                <div class="card-icon">
-                  <img src="./assets/images/service-3.png" alt="Service icon">
+                  <div class="card-icon">
+                    <img src="./assets/images/service-3.png" alt="Service icon">
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    Sell a home
+                  </h3>
+
+                  <p class="card-text">
+                    <!-- text -->
+                  </p>
+
                 </div>
-
-                <h3 class="h3 card-title">
-                  <a href="#">Sell a home</a>
-                </h3>
-
-                <p class="card-text">
-                  over 1 million+ homes for sale available on the website, we can match you with a house you will want
-                  to call home.
-                </p>
-
-                <a href="#" class="card-link">
-                  <span>Find A Home</span>
-
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </a>
-
-              </div>
+              </a>
             </li>
 
           </ul>
@@ -896,7 +834,7 @@
         - #FEATURES
       -->
 
-      <section class="features">
+      <!-- <section class="features">
         <div class="container">
 
           <p class="section-subtitle">Our Aminities</p>
@@ -1038,7 +976,7 @@
         </div>
       </section>
 
-
+ -->
 
 
 
@@ -1256,7 +1194,7 @@
     - #FOOTER
   -->
 
-  <footer class="footer">
+  <footer class="footer" id="contact">
 
     <div class="footer-top">
       <div class="container">
@@ -1264,7 +1202,7 @@
         <div class="footer-brand">
 
           <a href="#" class="logo">
-            <img src="./assets/images/logo-light.png" alt="Homeverse logo">
+            <img src="/Assets/images/logo_1.png" alt="Dagar Builders logo">
           </a>
 
           <p class="section-text">
@@ -1277,23 +1215,31 @@
               <a href="#" class="contact-link">
                 <ion-icon name="location-outline"></ion-icon>
 
-                <address>Brooklyn, New York, United States</address>
+                <address>Jain Road, Dwarka Mor</address>
               </a>
             </li>
 
             <li>
-              <a href="tel:+0123456789" class="contact-link">
+              <a href="tel:+91 9990009063" class="contact-link">
                 <ion-icon name="call-outline"></ion-icon>
 
-                <span>+0123-456789</span>
+                <span>+91 9990009063</span>
               </a>
             </li>
 
             <li>
-              <a href="mailto:contact@homeverse.com" class="contact-link">
+              <a href="https://api.whatsapp.com/send?phone=91https://api.whatsapp.com/send?phone=919716081012" class="contact-link">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+
+                <span>+91 9716081012</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:contact@dagarbuilders.com" class="contact-link">
                 <ion-icon name="mail-outline"></ion-icon>
 
-                <span>contact@homeverse.com</span>
+                <span>contact@dagarbuilders.com</span>
               </a>
             </li>
 
@@ -1378,7 +1324,7 @@
             </li>
 
             <li>
-              <a href="#" class="footer-link">Login</a>
+              <a href="Login.html" class="footer-link">Login</a>
             </li>
 
             <li>
@@ -1402,7 +1348,7 @@
             </li>
 
             <li>
-              <a href="#" class="footer-link">Login</a>
+              <a href="Login.html" class="footer-link">Login</a>
             </li>
 
             <li>
@@ -1436,7 +1382,7 @@
       <div class="container">
 
         <p class="copyright">
-          &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+          &copy; 2022 <a href="#">Dagarbuilders</a>. All Rights Reserved
         </p>
 
       </div>
@@ -1451,7 +1397,7 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
+  <script src="/Assets/js/script.js"></script>
 
   <!-- 
     - ionicon link

@@ -20,7 +20,7 @@ input::-webkit-inner-spin-button {
     --raisin-black-1: hsl(227, 29%, 13%);
     --raisin-black-2: hsl(229, 17%, 19%);
     --yellow-green: hsl(89, 72%, 45%);
-    --orange-soda: var(--black)
+    --orange-soda: hsl(28 100% 50%);
     --cultured-1: hsl(0, 0%, 93%);
     --cultured-2: hsl(192, 24%, 96%);
     --misty-rose: hsl(7, 56%, 91%);
@@ -30,7 +30,7 @@ input::-webkit-inner-spin-button {
     --white: hsl(0, 0%, 100%);
     --black: hsl(0, 0%, 0%);
     --opal: hsl(180, 20%, 62%);
-    
+    --asd:hsl(28 100% 50%)
     
     /**
      * typography
