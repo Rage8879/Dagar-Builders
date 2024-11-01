@@ -73,14 +73,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 const checkboxes = document.querySelectorAll('.filter-status');
-const sortRadios = document.querySelectorAll('input[name="sort"]');
-const propertyList = document.querySelector('.property-list');
+const sortBy = document.getElementById('sort-by');
 const propertyCards = Array.from(document.querySelectorAll('.property-card'));
 
-// Store the initial order of property cards
-const originalOrder = [...propertyCards];
-
-// Filtering by selected statuses
+// Filter by status
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', filterProperties);
 });
@@ -96,27 +92,19 @@ function filterProperties() {
     });
 }
 
-// Sorting by selected criterion or resetting if "None" is selected
-sortRadios.forEach(radio => {
-    radio.addEventListener('change', () => {
-        if (radio.value === 'none') {
-            // Reset to original order
-            propertyList.innerHTML = '';
-            originalOrder.forEach(card => propertyList.appendChild(card));
-            return;
-        }
+// Sort based on selected criteria or skip if "None" is selected
+sortBy.addEventListener('change', () => {
+    if (sortBy.value === 'none') return; // Skip sorting if "None" is selected
 
-        // Otherwise, sort based on the selected option
-        const [sortType, sortOrder] = radio.value.split('-');
-        const sortedCards = [...propertyCards].sort((a, b) => {
-            const aValue = parseInt(a.dataset[sortType]);
-            const bValue = parseInt(b.dataset[sortType]);
-            return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
-        });
-
-        // Append sorted cards to the property list
-        propertyList.innerHTML = '';
-        sortedCards.forEach(card => propertyList.appendChild(card));
+    const [sortType, sortOrder] = sortBy.value.split('-');
+    const sortedCards = propertyCards.sort((a, b) => {
+        const aValue = parseInt(a.dataset[sortType]);
+        const bValue = parseInt(b.dataset[sortType]);
+        return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
     });
-});
 
+    // Append sorted cards to the property list
+    const propertyList = document.querySelector('.property-list');
+    propertyList.innerHTML = '';
+    sortedCards.forEach(card => propertyList.appendChild(card));
+});

@@ -154,11 +154,12 @@
                     <!-- Sort by Feature -->
                 <div class="sort-options">
                     <h3 for="sort-by">Sort by:</h3>
-                    <label><input type="radio" name="sort" value="none" checked> None</label>
-                    <label><input type="radio" name="sort" value="price-asc"> Price (Low to High)</label>
-                    <label><input type="radio" name="sort" value="price-desc"> Price (High to Low)</label>
-                    <label><input type="radio" name="sort" value="area-asc"> Area (Low to High)</label>
-                    <label><input type="radio" name="sort" value="area-desc"> Area (High to Low)</label>
+                    <select id="sort-by" class="sort-by">
+                    <option value="none">None</option>
+                    <option value="price-asc">Price (Low to High)</option>
+                    <option value="price-desc">Price (High to Low)</option>
+                    <option value="area-asc">Area (Low to High)</option>
+                    <option value="area-desc">Area (High to Low)</option>
                     </select>
                 </div>
             </div>          
