@@ -230,66 +230,6 @@
     z-index: 2;
   }
   
-  .header-top {
-    background: var(--prussian-blue);
-    padding-block: 15px;
-  }
-  
-  .header-top .container,
-  .header-top-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .header-top .container { gap: 8px 20px; }
-  
-  .header-top-list { gap: 15px; }
-  
-  .header-top-link {
-    color: var(--white);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-700);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .header-top-link:is(:hover, :focus) { color: var(--orange-soda); }
-  
-  .header-top-link ion-icon {
-    color: var(--orange-soda);
-    font-size: 15px;
-    --ionicon-stroke-width: 60px;
-  }
-  
-  .header-top .wrapper,
-  .header-top-social-list {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-top .wrapper { gap: 20px; }
-  
-  .header-top-social-list { gap: 8px; }
-  
-  .header-top-social-link {
-    color: var(--white);
-    font-size: 15px;
-  }
-  
-  .header-top-btn {
-    background: var(--orange-soda);
-    color: var(--white);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-700);
-    padding: 4px 15px;
-  }
-  
-  .header-top-btn:is(:hover, :focus) { --orange-soda: hsl(7, 72%, 46%); }
-  
   .header-bottom {
     background: var(--white);
     padding-block: 25px;
@@ -448,12 +388,55 @@
   cursor: pointer;
   margin-left: 12px;
 } 
+
+.listing-header{
+    display: flex;
+    gap: 50px;
+    justify-content: left;
+}
+
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   
+  .filter-section label {
+    display: flex;
+    align-items: center;
+    font-size: 110%;
+    gap: 10px;
+  }
+
+  .filter-section input {
+    scale: 150%;
+    margin-left: 9px;
+  }
+  
+  .sort-options {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Two columns */
+    gap: 1px;
+  }
+  
+  .sort-options label {
+    display: flex;
+    align-items: center;
+  }
+
+  .sort-options input {
+    scale: 10px;
+  }
+  
+  
+
   /*-----------------------------------*\
     #PROPERTY
   \*-----------------------------------*/
 
-  .property { padding-block: var(--section-padding); }
+  .property { 
+    padding-block: 30px;
+}
   
   .property-card {
     border: 1px solid var(--alice-blue);
