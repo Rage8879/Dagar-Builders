@@ -452,7 +452,7 @@
   /*-----------------------------------*\
     #PROPERTY
   \*-----------------------------------*/
-  
+
   .property { padding-block: var(--section-padding); }
   
   .property-card {
@@ -868,7 +868,9 @@
   
     }
   
-  
+    .property-list {
+        display: flex;
+      }
   
     /**
      * REUSED STYLE
