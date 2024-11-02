@@ -427,12 +427,6 @@
     #PROPERTY
   \*-----------------------------------*/
 
-  .propertyList {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0fr 0fr;
-  }
-
   .property-card {
     border: 1px solid var(--alice-blue);
     box-shadow: var(--shadow-2);
