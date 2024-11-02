@@ -552,35 +552,7 @@
     align-items: center;
     gap: 15px;
   }
-  
-  .card-author {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .author-avatar {
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
-    border-radius: 50%;
-  }
-  
-  .author-name > a {
-    color: var(--dark-jungle-green);
-    font-family: var(--ff-poppins);
-    font-size: var(--fs-5);
-    font-weight: var(--fw-600);
-    margin-bottom: 3px;
-  }
-  
-  .author-name > a:is(:hover, :focus) { color: var(--orange-soda); }
-  
-  .author-title {
-    color: var(--cadet);
-    font-size: var(--fs-7);
-  }
-  
+
   .card-footer-actions {
     display: flex;
     align-items: center;

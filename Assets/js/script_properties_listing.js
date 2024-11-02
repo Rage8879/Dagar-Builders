@@ -143,17 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             </ul>
                         </div>
                         <div class="card-footer">
-                            <div class="card-author">
-                                <figure class="author-avatar">
-                                    <img src="${property.author.avatar}" alt="${property.author.name}" class="w-100">
-                                </figure>
-                                <div>
-                                    <p class="author-name">
-                                        <a href="#">${property.author.name}</a>
-                                    </p>
-                                    <p class="author-title">${property.author.title}</p>
-                                </div>
-                            </div>
                             <div class="card-footer-actions">
                                 <button class="card-footer-actions-btn">
                                     <ion-icon name="resize-outline"></ion-icon>
