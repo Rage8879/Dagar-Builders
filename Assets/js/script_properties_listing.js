@@ -73,14 +73,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function() {
     const properties = [
-        // Example property data
-        { id: 1, name: 'Comfortable Apartment', price: 38900, area: 850, status: 'forRent', image: './Assets/images/property3.jpg', location: 'Belmont Gardens, Chicago', bedrooms: 3, bathrooms: 2, description: 'Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood', author: { name: 'William Seklo', title: 'Estate Agents', avatar: './Assets/images/author.jpg' } },
-        { id: 1, name: 'Comfortable Apartment', price: 38900, area: 850, status: 'forRent', image: './Assets/images/property3.jpg', location: 'Belmont Gardens, Chicago', bedrooms: 3, bathrooms: 2, description: 'Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood', author: { name: 'William Seklo', title: 'Estate Agents', avatar: './Assets/images/author.jpg' } }
-        // Add more properties here
+        { id: 1, name: 'Comfortable Apartment', price: 38900, area: 3850, status: 'forRent', image: './Assets/images/property3.jpg', location: 'Belmont Gardens, Chicago', bedrooms: 3, bathrooms: 2, description: 'Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood', author: { name: 'William Seklo', title: 'Estate Agents', avatar: './Assets/images/author.jpg' } },
+        { id: 2, name: 'Comfortable Apartment', price: 3900, area: 350, status: 'forSale', image: './Assets/images/property2.jpg', location: 'Belmont Gardens, Chicago', bedrooms: 3, bathrooms: 2, description: 'Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood', author: { name: 'William Seklo', title: 'Estate Agents', avatar: './Assets/images/author.jpg' } },
+        { id: 3, name: 'Luxury Villa', price: 500000, area: 5000, status: 'forSale', image: './Assets/images/property1.jpg', location: 'Beverly Hills, Los Angeles', bedrooms: 5, bathrooms: 4, description: 'Spacious villa with stunning views and modern amenities', author: { name: 'Jane Doe', title: 'Real Estate Agent', avatar: './Assets/images/author2.jpg' } },
+        { id: 4, name: 'Cozy Cottage', price: 150000, area: 1200, status: 'sold', image: './Assets/images/property3.jpg', location: 'Greenwich Village, New York', bedrooms: 2, bathrooms: 1, description: 'Charming cottage in a quiet neighborhood', author: { name: 'John Smith', title: 'Broker', avatar: './Assets/images/author3.jpg' } }
     ];
 
     let currentPage = 1;
-    const propertiesPerPage = 10;
+    const propertiesPerPage = 2;
     let filteredProperties = properties;
 
     function renderProperties(properties) {
@@ -90,10 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         properties.forEach(property => {
             const propertyElement = document.createElement('li');
             propertyElement.innerHTML = `
-                <div class="container" id="propertyList">
-                    <ul class="property-list" id="propertyList">
-
-                    <li>
+                <li>
                     <div class="property-card">
                         <figure class="card-banner">
                             <a href="#">
@@ -167,9 +164,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </button>
                             </div>
                         </div>
-                    </li>
-                    </ul>
-                </div>
+                    </div>
+                </li>
             `;
             propertyList.appendChild(propertyElement);
         });
@@ -189,29 +185,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function applyFiltersAndSort() {
         const sortBy = document.getElementById('sortBy').value;
-        const filterPrice = document.getElementById('filterPrice').value;
-        const filterArea = document.getElementById('filterArea').value;
         const filterStatus = document.getElementById('filterStatus').value;
 
+        // Apply filtering based on status
         filteredProperties = properties.filter(property => 
-            property.price <= filterPrice && 
-            property.area <= filterArea && 
             (filterStatus === 'all' || property.status === filterStatus)
         );
 
-        switch (sortBy) {
-            case 'priceAsc':
-                filteredProperties.sort((a, b) => a.price - b.price);
-                break;
-            case 'priceDesc':
-                filteredProperties.sort((a, b) => b.price - a.price);
-                break;
-            case 'areaAsc':
-                filteredProperties.sort((a, b) => a.area - b.area);
-                break;
-            case 'areaDesc':
-                filteredProperties.sort((a, b) => b.area - a.area);
-                break;
+        // Apply sorting if sortBy is not "none"
+        if (sortBy !== 'none') {
+            switch (sortBy) {
+                case 'priceAsc':
+                    filteredProperties.sort((a, b) => a.price - b.price);
+                    break;
+                case 'priceDesc':
+                    filteredProperties.sort((a, b) => b.price - a.price);
+                    break;
+                case 'areaAsc':
+                    filteredProperties.sort((a, b) => a.area - b.area);
+                    break;
+                case 'areaDesc':
+                    filteredProperties.sort((a, b) => b.area - a.area);
+                    break;
+            }
         }
 
         currentPage = 1;
@@ -220,14 +216,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.getElementById('sortBy').addEventListener('change', applyFiltersAndSort);
-    document.getElementById('filterPrice').addEventListener('input', function() {
-        document.getElementById('priceValue').textContent = this.value;
-        applyFiltersAndSort();
-    });
-    document.getElementById('filterArea').addEventListener('input', function() {
-        document.getElementById('areaValue').textContent = this.value;
-        applyFiltersAndSort();
-    });
     document.getElementById('filterStatus').addEventListener('change', applyFiltersAndSort);
 
     document.getElementById('prevPage').addEventListener('click', function() {

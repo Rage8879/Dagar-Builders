@@ -146,17 +146,12 @@
         <div class="filters">
           <label for="sortBy">Sort By:</label>
           <select id="sortBy">
+              <option value="none">None</option>
               <option value="priceAsc">Price (Low to High)</option>
               <option value="priceDesc">Price (High to Low)</option>
               <option value="areaAsc">Area (Small to Large)</option>
               <option value="areaDesc">Area (Large to Small)</option>
           </select>
-          <label for="filterPrice">Price Range:</label>
-          <input type="range" id="filterPrice" min="0" max="10000000" step="1000">
-          <span id="priceValue"></span>
-          <label for="filterArea">Area Range:</label>
-          <input type="range" id="filterArea" min="0" max="10000" step="10">
-          <span id="areaValue"></span>
           <label for="filterStatus">Status:</label>
           <select id="filterStatus">
               <option value="all">All</option>
@@ -171,9 +166,9 @@
 
 
       <div class="pagination">
-        <button id="prevPage">Previous</button>
+        <button class="btn" id="prevPage"><<</button>
         <span id="pageInfo"></span>
-        <button id="nextPage">Next</button>
+        <button class="btn" id="nextPage">>></button>
     </div>
 
 

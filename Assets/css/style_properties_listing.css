@@ -1009,6 +1009,9 @@
   
     .card-footer { padding: 20px 30px 30px; }
   
+    .property-list{
+      max-width: 40%;
+    }
   
     /**
      * CTA
@@ -1129,9 +1132,9 @@
       100% { transform: translateY(100%); }
     }
   
-    .property-list{
-        float: left;
-        width: 50%;
+    .property{
+        display: flex;
+        width: 40%;
     }
   
     /**
@@ -1163,22 +1166,31 @@
 
 .filters {
     margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid black;
 }
 
 .property {
-    border: 1px solid black;
     padding: 10px;
     margin-bottom: 10px;
 }
 
-.property-list{
-  display: flex;
-}
-
 .pagination {
     margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 10%;
+    font-size: large;
+    align-items: center;
 }
 
 .pagination button {
-    margin: 0 5px;
+    margin: 0 10px;
+    justify-content: center;
+}
+
+.filters{
+  border: 1px bold black;
 }
