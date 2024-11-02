@@ -76,11 +76,13 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 1, name: 'Comfortable Apartment', price: 38900, area: 3850, status: 'forRent', image: './Assets/images/property3.jpg', location: 'Belmont Gardens, Chicago', bedrooms: 3, bathrooms: 2, description: 'Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood', author: { name: 'William Seklo', title: 'Estate Agents', avatar: './Assets/images/author.jpg' } },
         { id: 2, name: 'Comfortable Apartment', price: 3900, area: 350, status: 'forSale', image: './Assets/images/property2.jpg', location: 'Belmont Gardens, Chicago', bedrooms: 3, bathrooms: 2, description: 'Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood', author: { name: 'William Seklo', title: 'Estate Agents', avatar: './Assets/images/author.jpg' } },
         { id: 3, name: 'Luxury Villa', price: 500000, area: 5000, status: 'forSale', image: './Assets/images/property1.jpg', location: 'Beverly Hills, Los Angeles', bedrooms: 5, bathrooms: 4, description: 'Spacious villa with stunning views and modern amenities', author: { name: 'Jane Doe', title: 'Real Estate Agent', avatar: './Assets/images/author2.jpg' } },
-        { id: 4, name: 'Cozy Cottage', price: 150000, area: 1200, status: 'sold', image: './Assets/images/property3.jpg', location: 'Greenwich Village, New York', bedrooms: 2, bathrooms: 1, description: 'Charming cottage in a quiet neighborhood', author: { name: 'John Smith', title: 'Broker', avatar: './Assets/images/author3.jpg' } }
+        { id: 4, name: 'Cozy Cottage', price: 150000, area: 1200, status: 'sold', image: './Assets/images/property3.jpg', location: 'Greenwich Village, New York', bedrooms: 2, bathrooms: 1, description: 'Charming cottage in a quiet neighborhood', author: { name: 'John Smith', title: 'Broker', avatar: './Assets/images/author3.jpg' } },
+        { id: 5, name: 'Comfortable Apartment', price: 3900, area: 350, status: 'forSale', image: './Assets/images/property2.jpg', location: 'Belmont Gardens, Chicago', bedrooms: 3, bathrooms: 2, description: 'Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood', author: { name: 'William Seklo', title: 'Estate Agents', avatar: './Assets/images/author.jpg' } },
+        { id: 6, name: 'Luxury Villa', price: 500000, area: 5000, status: 'forSale', image: './Assets/images/property1.jpg', location: 'Beverly Hills, Los Angeles', bedrooms: 5, bathrooms: 4, description: 'Spacious villa with stunning views and modern amenities', author: { name: 'Jane Doe', title: 'Real Estate Agent', avatar: './Assets/images/author2.jpg' } }
     ];
 
     let currentPage = 1;
-    const propertiesPerPage = 2;
+    const propertiesPerPage = 12;
     let filteredProperties = properties;
 
     function renderProperties(properties) {

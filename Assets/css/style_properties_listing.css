@@ -427,11 +427,12 @@
     #PROPERTY
   \*-----------------------------------*/
 
-  .property { 
-    padding-block: 30px;
-    max-width: 100%;
-}
-  
+  .propertyList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0fr 0fr;
+  }
+
   .property-card {
     border: 1px solid var(--alice-blue);
     box-shadow: var(--shadow-2);
@@ -792,10 +793,11 @@
     /**
      * PROPERTY
      */
-  
-    .property {
-      max-width: 100%;
-      display: flex;
+
+     .propertyList {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0fr 0fr;
     }
 
     .property .container {
@@ -851,9 +853,6 @@
   
     }
   
-    .property-list {
-        display: flex;
-      }
   
     /**
      * REUSED STYLE
@@ -906,7 +905,13 @@
       box-shadow: var(--shadow-2);
     }
 
+    /* Property */
   
+    .propertyList {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    }
+    
   
     /**
      * ABOUT
@@ -1009,9 +1014,6 @@
   
     .card-footer { padding: 20px 30px 30px; }
   
-    .property-list{
-      max-width: 40%;
-    }
   
     /**
      * CTA
@@ -1132,10 +1134,7 @@
       100% { transform: translateY(100%); }
     }
   
-    .property{
-        display: flex;
-        width: 40%;
-    }
+
   
     /**
      * CTA
@@ -1168,6 +1167,8 @@
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid black;
+    display: grid;
+    margin: 10px;
 }
 
 .property {
@@ -1191,6 +1192,3 @@
     justify-content: center;
 }
 
-.filters{
-  border: 1px bold black;
-}
