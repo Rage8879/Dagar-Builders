@@ -461,6 +461,15 @@
   border-radius: 8px;
 }
 
+.search-container input {
+  flex: 1;
+  min-width: 10px;
+}
+
+.search-popover button {
+  min-width: 40px;
+}
+
 @media (min-width: 768px) {
   /* Full-width positioning for mobile and desktop, but only as tall as needed */
 .search-popover {
@@ -487,6 +496,7 @@
 
 .search-container input {
   padding: 10px;
+  min-width: none;
   border: 1px solid var(--cadet);
   flex: 1; /* Allow input to take remaining space */
 }
@@ -495,6 +505,7 @@
   padding: 8px 9px;
   cursor: pointer;
   margin-left: 12px;
+  max-width: 40px;
 } 
   
   
