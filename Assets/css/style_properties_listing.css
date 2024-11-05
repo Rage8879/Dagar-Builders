@@ -839,8 +839,20 @@ max-width: 40px;
   .copyright a:is(:hover, :focus) { color: var(--orange-soda); }
   
   
-  
-  
+.filters {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid black;
+  display: grid;
+  margin: 10px;
+  gap: 10px;
+}
+
+.filters select {
+  margin-top: -10px;
+  max-width: fit-content;
+}
+ 
   
   /*-----------------------------------*\
     #MEDIA QUERIES
@@ -849,6 +861,22 @@ max-width: 40px;
   /**
    * responsive for larger than 600px screen
    */
+
+  @media (min-width: 430px) {
+    .filters {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px;
+    }
+    .filters select {
+      margin-top: 0px;
+    }
+  }
+
   
   @media (min-width: 600px) {
   
@@ -914,9 +942,6 @@ max-width: 40px;
     }
   
   }
-  
-  
-  
   
   
   /**
@@ -1245,13 +1270,7 @@ max-width: 40px;
   
   }
 
-.filters {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 2px solid black;
-    display: grid;
-    margin: 10px;
-}
+
 
 .property {
     padding: 10px;
