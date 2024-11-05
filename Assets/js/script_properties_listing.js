@@ -71,15 +71,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const properties = [
-        { id: 1, name: 'Comfortable Apartment', price: 38900, area: 3850, status: 'forRent', image: './Assets/images/property3.jpg', location: 'Belmont Gardens, Chicago', bedrooms: 3, bathrooms: 2, description: 'Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood', author: { name: 'William Seklo', title: 'Estate Agents', avatar: './Assets/images/author.jpg' } },
-        { id: 2, name: 'Comfortable Apartment', price: 3900, area: 350, status: 'forSale', image: './Assets/images/property2.jpg', location: 'Belmont Gardens, Chicago', bedrooms: 3, bathrooms: 2, description: 'Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood', author: { name: 'William Seklo', title: 'Estate Agents', avatar: './Assets/images/author.jpg' } },
-        { id: 3, name: 'Luxury Villa', price: 500000, area: 5000, status: 'forSale', image: './Assets/images/property1.jpg', location: 'Beverly Hills, Los Angeles', bedrooms: 5, bathrooms: 4, description: 'Spacious villa with stunning views and modern amenities', author: { name: 'Jane Doe', title: 'Real Estate Agent', avatar: './Assets/images/author2.jpg' } },
-        { id: 4, name: 'Cozy Cottage', price: 150000, area: 1200, status: 'sold', image: './Assets/images/property3.jpg', location: 'Greenwich Village, New York', bedrooms: 2, bathrooms: 1, description: 'Charming cottage in a quiet neighborhood', author: { name: 'John Smith', title: 'Broker', avatar: './Assets/images/author3.jpg' } },
-        { id: 5, name: 'Comfortable Apartment', price: 3900, area: 350, status: 'forSale', image: './Assets/images/property2.jpg', location: 'Belmont Gardens, Chicago', bedrooms: 3, bathrooms: 2, description: 'Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood', author: { name: 'William Seklo', title: 'Estate Agents', avatar: './Assets/images/author.jpg' } },
-        { id: 6, name: 'Luxury Villa', price: 500000, area: 5000, status: 'PG Room', image: './Assets/images/property1.jpg', location: 'Beverly Hills, Los Angeles', bedrooms: 5, bathrooms: 4, description: 'Spacious villa with stunning views and modern amenities', author: { name: 'Jane Doe', title: 'Real Estate Agent', avatar: './Assets/images/author2.jpg' } }
-    ];
+document.addEventListener('DOMContentLoaded', async function() {
+    let properties = [];  // Declare properties as an empty array to hold loaded data.
+    
+    try {
+        // Fetch properties data from JSON file.
+        const response = await fetch('./Assets/json/properties.json');
+        properties = await response.json();  // Load the properties data into the array.
+        console.log(properties);  // Debug: Check if properties data loads correctly.
+    } catch (error) {
+        console.error("Error loading properties data:", error);
+    }
 
     let currentPage = 1;
     const propertiesPerPage = 12;
@@ -92,79 +94,77 @@ document.addEventListener('DOMContentLoaded', function() {
         properties.forEach(property => {
             const propertyElement = document.createElement('li');
             propertyElement.innerHTML = `
-                <li>
-                    <div class="property-card">
-                        <figure class="card-banner">
-                            <a href="#">
-                                <img src="${property.image}" alt="${property.name}" class="w-100">
-                            </a>
-                            <div class="card-badge ${property.status === 'forRent' ? 'green' : 
+                <div class="property-card">
+                    <figure class="card-banner">
+                        <a href="#">
+                            <img src="${property.image}" alt="${property.name}" class="w-100">
+                        </a>
+                        <div class="card-badge ${property.status === 'forRent' ? 'green' : 
                                                   property.status === 'forSale' ? 'blue' : 
                                                   property.status === 'sold' ? 'red' : 
                                                   property.status === 'PG Room' ? 'yellow' : ''}">
-                            ${property.status === 'forRent' ? 'For Rent' : 
-                              property.status === 'forSale' ? 'For Sale' : 
-                              property.status === 'sold' ? 'Sold' : 
-                              property.status === 'PG Room' ? 'PG Room' : ''}
+                        ${property.status === 'forRent' ? 'For Rent' : 
+                          property.status === 'forSale' ? 'For Sale' : 
+                          property.status === 'sold' ? 'Sold' : 
+                          property.status === 'PG Room' ? 'PG Room' : ''}
                         </div>
-                            <div class="banner-actions">
-                                <button class="banner-actions-btn">
-                                    <ion-icon name="location"></ion-icon>
-                                    <address>${property.location}</address>
-                                </button>
-                                <button class="banner-actions-btn">
-                                    <ion-icon name="camera"></ion-icon>
-                                    <span>4</span>
-                                </button>
-                                <button class="banner-actions-btn">
-                                    <ion-icon name="film"></ion-icon>
-                                    <span>2</span>
-                                </button>
-                            </div>
-                        </figure>
-                        <div class="card-content">
-                            <div class="card-price">
-                                <strong>$${property.price}</strong>/Month
-                            </div>
-                            <h3 class="h3 card-title">
-                                <a href="#">${property.name}</a>
-                            </h3>
-                            <p class="card-text">
-                                ${property.description}
-                            </p>
-                            <ul class="card-list">
-                                <li class="card-item">
-                                    <strong>${property.bedrooms}</strong>
-                                    <ion-icon name="bed-outline"></ion-icon>
-                                    <span>Bedrooms</span>
-                                </li>
-                                <li class="card-item">
-                                    <strong>${property.bathrooms}</strong>
-                                    <ion-icon name="man-outline"></ion-icon>
-                                    <span>Bathrooms</span>
-                                </li>
-                                <li class="card-item">
-                                    <strong>${property.area}</strong>
-                                    <ion-icon name="square-outline"></ion-icon>
-                                    <span>Square Ft</span>
-                                </li>
-                            </ul>
+                        <div class="banner-actions">
+                            <button class="banner-actions-btn">
+                                <ion-icon name="location"></ion-icon>
+                                <address>${property.location}</address>
+                            </button>
+                            <button class="banner-actions-btn">
+                                <ion-icon name="camera"></ion-icon>
+                                <span>4</span>
+                            </button>
+                            <button class="banner-actions-btn">
+                                <ion-icon name="film"></ion-icon>
+                                <span>2</span>
+                            </button>
                         </div>
-                        <div class="card-footer">
-                            <div class="card-footer-actions">
-                                <button class="card-footer-actions-btn">
-                                    <ion-icon name="resize-outline"></ion-icon>
-                                </button>
-                                <button class="card-footer-actions-btn">
-                                    <ion-icon name="heart-outline"></ion-icon>
-                                </button>
-                                <button class="card-footer-actions-btn">
-                                    <ion-icon name="add-circle-outline"></ion-icon>
-                                </button>
-                            </div>
+                    </figure>
+                    <div class="card-content">
+                        <div class="card-price">
+                            <strong>$${property.price}</strong>/Month
+                        </div>
+                        <h3 class="h3 card-title">
+                            <a href="#">${property.name}</a>
+                        </h3>
+                        <p class="card-text">
+                            ${property.description}
+                        </p>
+                        <ul class="card-list">
+                            <li class="card-item">
+                                <strong>${property.bedrooms}</strong>
+                                <ion-icon name="bed-outline"></ion-icon>
+                                <span>Bedrooms</span>
+                            </li>
+                            <li class="card-item">
+                                <strong>${property.bathrooms}</strong>
+                                <ion-icon name="man-outline"></ion-icon>
+                                <span>Bathrooms</span>
+                            </li>
+                            <li class="card-item">
+                                <strong>${property.area}</strong>
+                                <ion-icon name="square-outline"></ion-icon>
+                                <span>Square Ft</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-footer-actions">
+                            <button class="card-footer-actions-btn">
+                                <ion-icon name="resize-outline"></ion-icon>
+                            </button>
+                            <button class="card-footer-actions-btn">
+                                <ion-icon name="heart-outline"></ion-icon>
+                            </button>
+                            <button class="card-footer-actions-btn">
+                                <ion-icon name="add-circle-outline"></ion-icon>
+                            </button>
                         </div>
                     </div>
-                </li>
+                </div>
             `;
             propertyList.appendChild(propertyElement);
         });
@@ -234,5 +234,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    applyFiltersAndSort();
+    applyFiltersAndSort(); // Initial render
 });
