@@ -296,11 +296,12 @@ label{
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
-	margin: 50px;
+	margin: 50px auto;
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
   font-family: var(--ff-poppins);
+  width: fit-content;
 }
 input{
 	width: 70%;
@@ -331,6 +332,7 @@ a {
   font-size: smaller;
   text-align: right;
   margin-right: 15%;
+  margin-top: 5%;
 }
 
 .login{
@@ -349,7 +351,7 @@ a {
 }
 .signup label{
   margin-bottom: 10%;
-  margin-top: 10%;
+  margin-top: -5%;
 }
 .signup button{
   margin-top: 8%;
@@ -363,4 +365,15 @@ a {
 }
 #chk:checked ~ .signup label{
 	transform: scale(.8);
+}
+
+#home-button {
+  display: inline;
+  margin-top: 20px;
+  margin-: 10px;
+  z-index: 10;
+}
+
+#home-button ion-icon {
+  transform: scale(130%);
 }

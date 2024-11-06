@@ -56,7 +56,7 @@ function renderPropertyCards(properties) {
                 </figure>
                 <div class="card-content">
                     <div class="card-price">
-                        <strong>$${property.price}</strong>/Month
+                        <strong>$${property.price}</strong>${property.status === 'forRent' || property.status === 'PG Room' ? '/Month' : ''}
                     </div>
                     <h3 class="h3 card-title">
                         <a href="#">${property.name}</a>
@@ -131,6 +131,7 @@ async function loadAndSearchProperties() {
     }
 }
 
+// Function to apply filters and sorting
 function applyFiltersAndSort() {
     const statusFilter = document.getElementById('filterStatus').value;
     const sortBy = document.getElementById('sortBy').value;
@@ -158,6 +159,7 @@ function applyFiltersAndSort() {
     renderPropertyCards(filteredAndSortedProperties);
 }
 
+// Function to change the page
 function changePage(direction) {
     const totalPages = Math.ceil(filteredAndSortedProperties.length / itemsPerPage);
     currentPage += direction;
@@ -168,12 +170,14 @@ function changePage(direction) {
     renderPropertyCards(filteredAndSortedProperties);
 }
 
+// Function to update pagination information
 function updatePaginationInfo(totalItems) {
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const pageInfo = document.getElementById('pageInfo');
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
 }
 
+// Event listeners for DOM content loaded, filter and sort changes, and pagination buttons
 document.addEventListener('DOMContentLoaded', () => {
     loadAndSearchProperties();
 

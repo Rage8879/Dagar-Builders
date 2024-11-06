@@ -1262,3 +1262,6 @@ main {
   background: var(--cultured-2);
 }
 
+#prevPage ion-icon, #nextPage ion-icon {
+  transform: scale(1.5);
+}
