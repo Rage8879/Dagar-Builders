@@ -44,27 +44,3 @@ window.addEventListener("scroll", function () {
     window.scrollY >= 400 ? header.classList.add("active")
         : header.classList.remove("active");
 }); 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const searchBtn = document.getElementById('search-btn');
-    const searchPopover = document.getElementById('search-popover');
-    const searchInput = searchPopover.querySelector('input'); // Select the input field within the popover
-
-    // Toggle popover visibility on button click
-    searchBtn.addEventListener('click', function (event) {
-        event.stopPropagation(); // Prevent event from bubbling up
-        searchPopover.style.display = searchPopover.style.display === 'block' ? 'none' : 'block';
-        
-        // Focus the input field if the popover is visible
-        if (searchPopover.style.display === 'block') {
-            searchInput.focus(); // Focus the input field
-        }
-    });
-
-    // Close popover when clicking outside of it
-    document.addEventListener('click', function (event) {
-        if (!searchBtn.contains(event.target) && !searchPopover.contains(event.target)) {
-            searchPopover.style.display = 'none';
-        }
-    });
-});

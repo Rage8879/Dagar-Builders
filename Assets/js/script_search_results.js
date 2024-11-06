@@ -1,17 +1,7 @@
-let properties = [];
-
-// Function to load properties from JSON file
-async function loadProperties() {
-    try {
-        const response = await fetch('./Assets/json/properties.json'); // Make sure the path is correct
-        if (!response.ok) {
-            throw new Error('Failed to load properties data');
-        }
-        properties = await response.json();
-        console.log("Properties loaded:", properties);
-    } catch (error) {
-        console.error("Error loading properties:", error);
-    }
+// Function to get the search query parameter from the URL
+function getQueryParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
 }
 
 // Function to render property cards
@@ -21,7 +11,7 @@ function renderPropertyCards(properties) {
 
     if (properties.length === 0) {
         resultsContainer.innerHTML = "<p>No matching properties found.</p>";
-        return; // Early return if no properties
+        return;
     }
 
     properties.forEach(property => {
@@ -93,37 +83,27 @@ function renderPropertyCards(properties) {
     });
 }
 
-// Function to search properties by a single keyword in specific fields
-function searchProperties() {
-    const searchInput = document.querySelector('.search-container input[type="text"]');
-    const keyword = searchInput.value.trim().toLowerCase();
+// Function to load and filter properties based on the query parameter
+async function loadAndSearchProperties() {
+    const query = getQueryParameter('query');
+    if (!query) return;
 
-    if (!keyword) {
-        console.log("No search keyword entered.");
-        return;
+    try {
+        const response = await fetch('./Assets/json/properties.json');
+        if (!response.ok) throw new Error('Failed to load properties data');
+        const properties = await response.json();
+
+        // Filter properties based on the query
+        const filteredProperties = properties.filter(property => {
+            const fieldsToSearch = `${property.name} ${property.location} ${property.description} ${property.status}`.toLowerCase();
+            return fieldsToSearch.includes(query.toLowerCase());
+        });
+
+        renderPropertyCards(filteredProperties);
+    } catch (error) {
+        console.error("Error loading properties:", error);
     }
-
-    console.log("Searching properties for keyword:", keyword);
-
-    const filteredProperties = properties.filter(property => {
-        const fieldsToSearch = `${property.name} ${property.location} ${property.description} ${property.status}`.toLowerCase();
-        return fieldsToSearch.includes(keyword);
-    });
-
-    console.log("Filtered properties:", filteredProperties);
-
-    renderPropertyCards(filteredProperties);
 }
 
-// Event listeners for search actions
-document.querySelector('.search-container input[type="text"]').addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Prevent form submission
-        searchProperties();
-    }
-});
-
-document.querySelector('.search-container .btn').addEventListener('click', searchProperties);
-
-// Load properties data on page load
-loadProperties();
+// Initialize the property search on page load
+document.addEventListener('DOMContentLoaded', loadAndSearchProperties);
