@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-    <title>DAGAR BUILDERS - The Key To Your Home</title>
 
-    <!-- 
-      - favicon
-    -->
-    <link rel="shortcut icon" href="./Assets/images/Logo.svg" type="image/svg+xml">
-  
-    <!-- 
-      - custom css link
-    -->
-    <link rel="stylesheet" href="./Assets/css/style_properties_listing.css">
-  
-    <!-- 
-      - google font link
-    -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>DAGAR BUILDERS - The Key To Your Home</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./Assets/images/Logo.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./Assets/css/style_properties_listing.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
+
+  <!-- 
+    - #HEADER
+  -->
+
   <header class="header" data-header>
 
     <div class="overlay" data-overlay></div>
@@ -32,7 +40,7 @@
     <div class="header-bottom">
       <div class="container">
 
-        <a href="#" class="logo">
+        <a href="./index.html" class="logo">
           <img src="./Assets/images/logo1.png" alt="Dagar Builders logo">
         </a>
 
@@ -50,7 +58,7 @@
             <ul class="navbar-list">
 
               <li>
-                <a href="#home" class="navbar-link" data-nav-link>Home</a>
+                <a href="./index.html" class="navbar-link" data-nav-link>Home</a>
               </li>
 
               <li>
@@ -122,10 +130,49 @@
 
   </header>
 
-  <ul id="propertyList" class="propertyList">
-    <div id="resultsContainer"></div>
-  </ul>
+
+
+
+
+  <main>
+    <article>
+
       <!-- 
+        - #PROPERTY
+      -->
+
+      <section class="property" id="property">
+
+        <div class="filters">
+          <label for="filterStatus">Status:</label>
+          <select id="filterStatus">
+              <option value="all">All</option>
+              <option value="forSale">For Sale</option>
+              <option value="forRent">For Rent</option>
+              <option value="PG Room">PG Room</option>
+              <option value="sold">Sold</option>
+          </select>
+          <label for="sortBy">Sort By:</label>
+          <select id="sortBy">
+              <option value="none">None</option>
+              <option value="priceAsc">Price (Low to High)</option>
+              <option value="priceDesc">Price (High to Low)</option>
+              <option value="areaAsc">Area (Small to Large)</option>
+              <option value="areaDesc">Area (Large to Small)</option>
+          </select>
+      </div>
+
+      <ul id="propertyList" class="propertyList"></ul>
+      </section>
+
+
+      <div class="pagination">
+        <button class="btn" id="prevPage"><<</button>
+        <span id="pageInfo"></span>
+        <button class="btn" id="nextPage">>></button>
+    </div>
+
+  <!-- 
     - #FOOTER
   -->
 
@@ -136,7 +183,7 @@
 
         <div class="footer-brand">
 
-          <a href="./index.html" class="logo">
+          <a href="#" class="logo">
             <img src="./Assets/images/logo1.png" alt="Dagar Builders logo">
           </a>
 
@@ -325,14 +372,22 @@
 
   </footer>
 
-</body>
-<link rel="stylesheet" href="./Assets/css/style_properties_listing.css">
-<script src="./Assets/js/script_searchpopover.js"></script>
-<script src="./Assets/js/script_search_results.js"></script>
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./Assets/js/script_search_results.js"></script>
+  <script src="./Assets/js/script_searchpopover.js"></script>
+  <script src="./Assets/js/script.js"></script>
   <!-- 
     - ionicon link
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
 
 </html>
