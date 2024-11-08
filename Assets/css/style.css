@@ -231,6 +231,12 @@
   }
   
   .card-badge.green { background: var(--yellow-green); }
+
+  .card-badge.blue { background: blue; }
+  
+  .card-badge.red { background: red; }
+  
+  .card-badge.yellow { background: darkgoldenrod; }
   
   .card-badge.orange { background: var(--orange-soda); }
   
@@ -461,6 +467,25 @@
   border-radius: 8px;
 }
 
+  /* Profile Popover Styles */
+  .profile-popover {
+    display: none; /* Hidden by default */
+    position: absolute;
+    justify-content: center;
+    bottom: 60px; /* Adjust based on your header height */
+    background: var(--white);
+    box-shadow: -2px 0 30px hsla(237, 71%, 52%, 0.2);
+    z-index: 10;
+    width: 180px;
+    padding: 10px;
+  }
+  
+  .profile-popover.show {
+    display: block;
+    margin: auto;
+  }
+    
+
 .search-container input {
   flex: 1;
   min-width: 10px;
@@ -486,6 +511,29 @@
   border-radius: 8; /* No rounded corners */
   max-height: fit-content; /* Only as tall as the content */
 }
+  /* Profile Popover Styles */
+  .profile-popover {
+    display: none; /* Hidden by default */
+    position: absolute;
+    justify-content: center;
+    bottom: auto;
+    top: 80%; /* Adjust based on your header height */
+    background: var(--white);
+    box-shadow: -2px 0 30px hsla(237, 71%, 52%, 0.2);
+    z-index: 10;
+    width: 180px;
+    padding: 10px;
+  }
+  
+  .profile-popover button {
+    font-size: medium;
+  }
+
+  .profile-popover.show {
+    display: block;
+    margin: auto;
+  }
+
 }
 
 .search-popover ion-icon {
@@ -507,7 +555,6 @@
   margin-left: 12px;
   max-width: 40px;
 } 
-  
   
   /*-----------------------------------*\
     #HERO
@@ -551,9 +598,6 @@
     scale: 1.8;
     /* filter: drop-shadow(1.5px 2.5px 5px); */
   }
-  
-  
-  
   
   
   /*-----------------------------------*\

@@ -6,44 +6,42 @@
     <title>DAGAR BUILDERS - The Key To Your Home</title>
 
     <!-- Favi-Icon -->
-     <link rel="shortcut icon" href="./Assets/images/Logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="./Assets/images/Logo.svg" type="image/x-icon">
 
     <!-- StyleSheet -->
-     <link rel="stylesheet" href="./Assets/css/style_login.css">
-
+    <link rel="stylesheet" href="./Assets/css/style_login.css">
 </head>
 <body>
     <div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
-		<button class="btn" id="home-button" onclick="goHome()"><ion-icon name="home"></ion-icon></button>
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" inputmode="latin-name" name="txt" placeholder="User name" required="">
-					<input type="email" inputmode="email" name="email" placeholder="Email" required="">
-          <input type="number" name="contact" inputmode="tel" placeholder="Mobile Number" required="">
-					<input class="pswd" type="password" name="pswd" placeholder="Password" required="">
-					<button class="btn">Sign up</button>
-				</form>
-			</div>
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <button class="btn" id="home-button" onclick="goHome()"><ion-icon name="home"></ion-icon></button>
+        <div class="signup">
+            <form>
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <input type="text" inputmode="latin-name" name="txt" placeholder="User name" required="">
+                <input type="email" inputmode="email" name="email" placeholder="Email" required="">
+                <input type="number" name="contact" inputmode="tel" placeholder="Mobile Number" required="">
+                <input class="pswd" type="password" name="pswd" placeholder="Password" required="">
+                <button class="btn">Sign up</button>
+            </form>
+        </div>
 
-			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" inputmode="email" name="email" placeholder="Email" required="">
-					<input class="pswd" type="password" name="pswd" placeholder="Password" required="">
-					<a href="forgot password">Forgot Password?</a>
-					<button class="btn">Login</button>
-				</form>
-			</div>
-	</div>
+        <div class="login">
+            <form id="loginForm">
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="email" inputmode="email" name="email" placeholder="Email" required="">
+                <input class="pswd" type="password" name="pswd" placeholder="Password" required="">
+                <a href="forgot password">Forgot Password?</a>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 
+        - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="./Assets/js/script_login.js"></script>
 </body>
-
-<!-- 
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-	<script src="./Assets/js/script_login.js"></script>
-
 </html>
