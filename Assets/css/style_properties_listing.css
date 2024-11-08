@@ -476,6 +476,24 @@ min-width: 10px;
 min-width: 40px;
 }
 
+  /* Profile Popover Styles */
+  .profile-popover {
+    display: none; /* Hidden by default */
+    position: absolute;
+    justify-content: center;
+    bottom: 60px; /* Adjust based on your header height */
+    background: var(--white);
+    box-shadow: -2px 0 30px hsla(237, 71%, 52%, 0.2);
+    z-index: 10;
+    width: 180px;
+    padding: 10px;
+  }
+  
+  .profile-popover.show {
+    display: block;
+    margin: auto;
+  }
+
 @media (min-width: 768px) {
 /* Full-width positioning for mobile and desktop, but only as tall as needed */
 .search-popover {
@@ -492,6 +510,30 @@ z-index: 5;
 border-radius: 8; /* No rounded corners */
 max-height: fit-content; /* Only as tall as the content */
 }
+
+  /* Profile Popover Styles */
+  .profile-popover {
+    display: none; /* Hidden by default */
+    position: absolute;
+    justify-content: center;
+    bottom: auto;
+    top: 80%; /* Adjust based on your header height */
+    background: var(--white);
+    box-shadow: -2px 0 30px hsla(237, 71%, 52%, 0.2);
+    z-index: 10;
+    width: 180px;
+    padding: 10px;
+  }
+  
+  .profile-popover button {
+    font-size: medium;
+  }
+
+  .profile-popover.show {
+    display: block;
+    margin: auto;
+  }
+
 }
 
 .search-popover ion-icon {

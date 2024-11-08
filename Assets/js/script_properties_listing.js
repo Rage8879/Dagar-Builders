@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         properties.forEach(property => {
             const propertyElement = document.createElement('li');
             propertyElement.innerHTML = `
-                <div class="property-card">
+                <div class="property-card" onclick="redirectToPropertyInfo('${property.id}')">
                     <figure class="card-banner">
                         <a href="#">
                             <img src="${property.image}" alt="${property.name}" class="w-100">
@@ -77,9 +77,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                                                   property.status === 'forSale' ? 'blue' : 
                                                   property.status === 'sold' ? 'red' : 
                                                   property.status === 'PG Room' ? 'yellow' : ''}">
-                        ${property.status === 'forRent' ? 'For Rent' : 
-                          property.status === 'forSale' ? 'For Sale' : 
-                          property.status === 'sold' ? 'Sold' : 
+                        ${property.status === 'forRent' ? 'For Rent' :
+                          property.status === 'forSale' ? 'For Sale' :
+                          property.status === 'sold' ? 'Sold' :
                           property.status === 'PG Room' ? 'PG Room' : ''}
                         </div>
                         <div class="banner-actions">
@@ -144,6 +144,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 
+    // Function to redirect to property info page
+    window.redirectToPropertyInfo = function(propertyId) {
+        window.location.href = `property_info.html?id=${propertyId}`;
+    };
+
     function updatePagination() {
         const totalPages = Math.ceil(filteredProperties.length / propertiesPerPage);
         const pageInfo = document.getElementById('pageInfo');
@@ -183,30 +188,30 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
         }
 
-        currentPage = 1;
+        renderProperties(filteredProperties);
         updatePagination();
-        renderProperties(filteredProperties.slice((currentPage - 1) * propertiesPerPage, currentPage * propertiesPerPage));
     }
 
+    // Initial render
+    renderProperties(filteredProperties);
+    updatePagination();
+
+    // Event listeners for filters and pagination
     document.getElementById('sortBy').addEventListener('change', applyFiltersAndSort);
     document.getElementById('filterStatus').addEventListener('change', applyFiltersAndSort);
-
     document.getElementById('prevPage').addEventListener('click', function() {
         if (currentPage > 1) {
             currentPage--;
-            renderProperties(filteredProperties.slice((currentPage - 1) * propertiesPerPage, currentPage * propertiesPerPage));
+            renderProperties(filteredProperties);
             updatePagination();
         }
     });
-
     document.getElementById('nextPage').addEventListener('click', function() {
         const totalPages = Math.ceil(filteredProperties.length / propertiesPerPage);
         if (currentPage < totalPages) {
             currentPage++;
-            renderProperties(filteredProperties.slice((currentPage - 1) * propertiesPerPage, currentPage * propertiesPerPage));
+            renderProperties(filteredProperties);
             updatePagination();
         }
     });
-
-    applyFiltersAndSort(); // Initial render
 });
