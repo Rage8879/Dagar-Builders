@@ -1,21 +1,21 @@
 [
     {
         "id": 1,
-        "name": "Comfortable Apartment",
-        "price": 38900,
+        "name": "Spacious 2BHK Apartment",
+        "price": 25000,
         "area": 3850,
         "status": "forRent",
         "image": "./Assets/images/property3.jpg",
         "image1": "./Assets/images/property1.jpg",
-        "location": "Belmont Gardens, Chicago",
-        "bedrooms": 3,
+        "location": "Vasant Kunj, New Delhi",
+        "bedrooms": 2,
         "bathrooms": 2,
-        "description": "Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood"
+        "description": "A well-maintained 2BHK apartment with modern amenities located in the prime area of Vasant Kunj. Close to shopping malls and educational institutions."
     },
     {
         "id": 2,
-        "name": "Luxury Villa",
-        "price": 40900,
+        "name": "Luxury 3BHK in Greater Kailash",
+        "price": 7000000,
         "area": 4050,
         "status": "forSale",
         "image": "./Assets/images/property2.jpg",
@@ -23,57 +23,57 @@
         "image2": "./Assets/images/property1.jpg",
         "image3": "./Assets/images/property2.jpg",
         "video": "https://ia803409.us.archive.org/0/items/5-6264534951715144078_202105/Avengers.Endgame.2019.1080p.BluRay.x264-%5BYTS.LT%5D.mp4",
-        "location": "Belmont Gardens, Chicago",
+        "location": "Greater Kailash, New Delhi",
         "bedrooms": 3,
         "bathrooms": 2,
-        "description": "Spacious villa with stunning views and modern amenities"
+        "description": "This exquisite 3BHK apartment in Greater Kailash offers stunning interiors, ample living space, and proximity to top schools, malls, and restaurants."
     },
     {
         "id": 3,
-        "name": "Cozy Cottage",
-        "price": 45000,
+        "name": "Cozy Studio in South Extension",
+        "price": 8500000,
         "area": 4100,
         "status": "sold",
         "image": "./Assets/images/property1.jpg",
-        "location": "Greenwich Village, New York",
+        "location": "South Extension, New Delhi",
         "bedrooms": 3,
         "bathrooms": 2,
-        "description": "Charming cottage in a quiet neighborhood"
+        "description": "A compact studio apartment perfect for bachelors or young professionals. Located in a prime residential neighborhood with easy access to metro."
     },
     {
         "id": 4,
-        "name": "UnComfortable Apartment",
-        "price": 35600,
+        "name": "4BHK Luxury Home in Anand Lok",
+        "price": 5200000,
         "area": 3550,
-        "status": "forRent",
+        "status": "forSale",
         "image": "./Assets/images/property1.jpg",
-        "location": "Belmont Gardens, Chicago",
-        "bedrooms": 3,
-        "bathrooms": 2,
-        "description": "Beautiful Huge 1 Family House In Heart Of Westbury. Newly Renovated With New Wood"
+        "location": "Anand Lok, New Delhi",
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "description": "Spacious 4BHK house with a lush garden and modern interiors in the upscale Anand Lok area. Perfect for families looking for luxury and comfort."
     },
     {
         "id": 5,
-        "name": "Luxury Villa",
-        "price": 40900,
-        "area": 4050,
+        "name": "2BHK Flat Near Connaught Place",
+        "price": 35000,
+        "area": 2050,
         "status": "forRent",
         "image": "./Assets/images/property3.jpg",
-        "location": "Belmont Gardens, Chicago",
-        "bedrooms": 3,
+        "location": "Connaught Place, New Delhi",
+        "bedrooms": 2,
         "bathrooms": 2,
-        "description": "Spacious villa with stunning views and modern amenities"
+        "description": "Modern 2BHK flat in a premium location near Connaught Place, with high-end finishes and excellent connectivity to shopping and dining hubs."
     },
     {
         "id": 6,
-        "name": "Lazy Cottage",
+        "name": "Comfortable PG Room in Lajpat Nagar",
         "price": 42000,
-        "area": 4000,
+        "area": 800,
         "status": "PG Room",
         "image": "./Assets/images/property2.jpg",
-        "location": "Greenwich Village, New York",
-        "bedrooms": 3,
-        "bathrooms": 2,
-        "description": "Charming cottage in a quiet neighborhood"
+        "location": "Greater Kailash, New Delhi",
+        "bedrooms": 1,
+        "bathrooms": 1,
+        "description": "A cozy and affordable PG room in the heart of Lajpat Nagar. Ideal for students and working professionals. Includes all basic amenities like WiFi, meals, and housekeeping services."
     }
 ]

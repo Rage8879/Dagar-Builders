@@ -56,7 +56,7 @@ function renderPropertyCards(properties) {
                 </figure>
                 <div class="card-content">
                     <div class="card-price">
-                        <strong>$${property.price}</strong>${property.status === 'forRent' || property.status === 'PG Room' ? '/Month' : ''}
+                        <strong>₹ ${property.price.toLocaleString()}</strong>${property.status === 'forRent' || property.status === 'PG Room' ? '/Month' : ''}
                     </div>
                     <h3 class="h3 card-title">
                         <a href="#">${property.name}</a>

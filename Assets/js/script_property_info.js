@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 </div>
                 <div class="details-section">
                     <h1>${property.name}</h1>
-                    <p>Price: $${property.price}</p>
+                    <p>Price: ₹ ${property.price.toLocaleString()}</p>
                     <p>Area: ${property.area} Sq Ft</p>
                     <p>Status: ${property.status}</p>
                     <p>Location: ${property.location}</p>
