@@ -1,5 +1,5 @@
 let currentPage = 1;
-const itemsPerPage = 12;
+const itemsPerPage = 8;
 let filteredAndSortedProperties = [];
 
 // Function to get the search query parameter from the URL

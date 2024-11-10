@@ -67,7 +67,7 @@
     {
         "id": 6,
         "name": "Comfortable PG Room in Lajpat Nagar",
-        "price": 42000,
+        "price": 7000,
         "area": 800,
         "status": "PG Room",
         "image": "./Assets/images/property2.jpg",
@@ -75,5 +75,54 @@
         "bedrooms": 1,
         "bathrooms": 1,
         "description": "A cozy and affordable PG room in the heart of Lajpat Nagar. Ideal for students and working professionals. Includes all basic amenities like WiFi, meals, and housekeeping services."
+    },
+    {
+        "id": 7,
+        "name": "4BHK Luxury Home in Anand Lok",
+        "price": 5200000,
+        "area": 3550,
+        "status": "forSale",
+        "image": "./Assets/images/property1.jpg",
+        "location": "Anand Lok, New Delhi",
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "description": "Spacious 4BHK house with a lush garden and modern interiors in the upscale Anand Lok area. Perfect for families looking for luxury and comfort."
+    },
+    {
+        "id": 8,
+        "name": "2BHK Flat Near Connaught Place",
+        "price": 35000,
+        "area": 2050,
+        "status": "forRent",
+        "image": "./Assets/images/property3.jpg",
+        "location": "Connaught Place, New Delhi",
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "description": "Modern 2BHK flat in a premium location near Connaught Place, with high-end finishes and excellent connectivity to shopping and dining hubs."
+    },
+    {
+        "id": 9,
+        "name": "Comfortable PG Room in Lajpat Nagar",
+        "price": 7000,
+        "area": 800,
+        "status": "PG Room",
+        "image": "./Assets/images/property2.jpg",
+        "location": "Greater Kailash, New Delhi",
+        "bedrooms": 1,
+        "bathrooms": 1,
+        "description": "A cozy and affordable PG room in the heart of Lajpat Nagar. Ideal for students and working professionals. Includes all basic amenities like WiFi, meals, and housekeeping services."
+    },
+    {
+        "id": 10,
+        "name": "Spacious 2BHK Apartment",
+        "price": 25000,
+        "area": 3850,
+        "status": "forRent",
+        "image": "./Assets/images/property3.jpg",
+        "image1": "./Assets/images/property1.jpg",
+        "location": "Vasant Kunj, New Delhi",
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "description": "A well-maintained 2BHK apartment with modern amenities located in the prime area of Vasant Kunj. Close to shopping malls and educational institutions."
     }
 ]

@@ -618,9 +618,9 @@
   
   .about-banner .abs-img {
     position: absolute;
-    bottom: 100px;
-    left: 15px;
-    width: 50%;
+    bottom: 10px;
+    left: 10px;
+    width: 45%;
     border-radius: 4px;
   }
   

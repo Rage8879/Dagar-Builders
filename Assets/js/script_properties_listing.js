@@ -58,14 +58,21 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     let currentPage = 1;
-    const propertiesPerPage = 12;
+    const propertiesPerPage = 8;
     let filteredProperties = properties;
 
     function renderProperties(properties) {
         const propertyList = document.getElementById('propertyList');
         propertyList.innerHTML = '';
 
-        properties.forEach(property => {
+        // Calculate the start and end index for the current page
+        const startIndex = (currentPage - 1) * propertiesPerPage;
+        const endIndex = startIndex + propertiesPerPage;
+
+        // Slice the properties array to get only the properties for the current page
+        const propertiesToShow = properties.slice(startIndex, endIndex);
+
+        propertiesToShow.forEach(property => {
             const propertyElement = document.createElement('li');
             propertyElement.innerHTML = `
                 <div class="property-card" onclick="redirectToPropertyInfo('${property.id}')">
