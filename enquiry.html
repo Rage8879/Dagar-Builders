@@ -15,7 +15,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./Assets/css/style_enquiry.css">
+  <link rel="stylesheet" href="./Assets/css/style_form.css">
   <link rel="stylesheet" href="./Assets/css/style.css">
 
   <!-- 
@@ -139,58 +139,61 @@
   </header>
 
 
-
-
-
   <main>
     <article>
-
-      <!-- 
-        - #GOOGLE MAP LOCATION
-      -->
       <div class="main">     
         <!-- Enquiry Form -->
-        <div class="enquiry">
+        <div class="form">
             <form>
                 <!-- Form Label -->
                 <label>Make An Enquiry</label>
                 <div class="form-grid">
                     <!-- Full Name Input -->
-                    <input type="text" inputmode="latin-name" placeholder="Your Name" required="">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" inputmode="latin-name" placeholder="Your Name" required="">
+                    </div>
                     
                     <!-- Preferred Location Input -->
-                    <input type="text" name="location" placeholder="Preferred Location" required="">
+                    <div class="form-group">
+                        <label for="location">Preferred Location</label>
+                        <input type="text" id="location" name="location" placeholder="Preferred Location" required="">
+                    </div>
                     
                     <!-- Phone Number Input -->
-                    <input type="tel" name="contact" inputmode="tel" placeholder="Mobile Number" required="">
+                    <div class="form-group">
+                        <label for="contact">Mobile Number</label>
+                        <input type="tel" id="contact" name="contact" inputmode="tel" placeholder="Mobile Number" required="">
+                    </div>
                     
                     <!-- Property Type Dropdown -->
-                    <select name="property_type" required>
-                        <option value="residential">Residential</option>
-                        <option value="commercial">Commercial</option>
-                        <option value="rental">Rental</option>
-                        <option value="investment">Investment</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="property_type">Property Type</label>
+                        <select id="property_type" name="property_type" required>
+                            <option value="residential">Residential</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="rental">Rental</option>
+                            <option value="investment">Investment</option>
+                        </select>
+                    </div>
                     
                     <!-- Email Address Input -->
-                    <input type="email" inputmode="email" name="email" placeholder="Email" required="">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" inputmode="email" name="email" placeholder="Email" required="">
+                    </div>
                     
-                    <!-- Budget Range Dropdown -->
-                    <select name="budget" required>
-                        <option value="under-30lakh">Under ₹30 Lakh</option>
-                        <option value="30lakh-50lakh">₹30 Lakh - ₹50 Lakh</option>
-                        <option value="50lakh-1cr">₹50 Lakh - ₹1 Crore</option>
-                        <option value="above-1cr">Above ₹1 Crore</option>
-                    </select>
+                    <!-- Message Input -->
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your Message" required=""></textarea>
+                    </div>
                 </div>
-                <!-- Message/Enquiry Details -->
-                <textarea name="message" class="msg" placeholder="Write Your Message" required></textarea>
-    
                 <!-- Submit Button -->
                 <button class="btn" type="submit">Submit</button>
             </form>
         </div>
-    </div>
+      </div>
     </article>
   </main>  
 

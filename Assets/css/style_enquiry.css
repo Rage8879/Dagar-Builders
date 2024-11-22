@@ -1,4 +1,16 @@
-/* Main container styles */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+:root {
+    --ff-poppins: 'Poppins', sans-serif;
+    --cultured-2: hsl(192, 24%, 96%);
+}
+
 .main {
     margin: 0;
     padding: 0;
@@ -6,29 +18,21 @@
     justify-content: center;
     min-height: 100vh;
     background: var(--cultured-2);
-}
-
-/* Form wrapper */
-.main {
     width: 100%;
     height: auto;
-    max-height: 100%; /* Allow for dynamic height based on content */
     overflow: hidden;
     padding: 20px;
-    background: hsl(192, 24%, 96%);
-    margin-bottom: -120px;
+    margin-bottom: -90px;
 }
 
-.enquiry {
-    position: relative;
+.form {
+    text-align: center;
     width: 100%;
-    height: 100%;
 }
 
-/* Label for form fields */
-label {
-    color: hsl(0 0% 25.5%);
-    font-size: 2em; /* Ensure consistent font size */
+.form label {
+    color: hsl(0, 0%, 25.5%);
+    font-size: 2em;
     justify-content: center;
     display: flex;
     margin: 10px 0;
@@ -39,42 +43,6 @@ label {
     width: fit-content;
 }
 
-/* Style for input fields */
-input, select, textarea {
-    font-family: var(--ff-poppins);
-    width: 80%;
-    height: 40px;
-    background: #e0dede;
-    margin: 6px auto;
-    padding: 12px;
-    border: none;
-    outline: none;
-    font-size: .9em; /* Ensure consistent font size */
-}
-
-/* Textarea styling */
-textarea {
-    height: 150px;
-    resize: none; /* Prevent resize */
-    margin-bottom: 25px;
-    font-size: .89em; /* Ensure consistent font size */
-}
-
-/* Radio buttons styling for preferred contact method */
-.signup input[type="radio"] {
-    margin-right: 5px;
-}
-
-/* Styling for the entire form */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    font-size: 1em; /* Set a base font size for the form */
-}
-
-/* Responsive layout for input fields */
 .form-grid {
     display: flex;
     flex-wrap: wrap;
@@ -82,47 +50,92 @@ form {
     width: 100%;
 }
 
-/* Grid layout for desktop view */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Full width in grid layout */
+    margin: 0px 0; /* Adjust margin for spacing */
+}
+
+.form-group label {
+    font-size: 1em; /* Normal font size for labels */
+    margin-bottom: 5px; /* Add some margin for spacing */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-family: var(--ff-poppins);
+    width: 100%; /* Full width in grid layout */
+    height: 40px;
+    background: #e0dede;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-size: .9em;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: none;
+    margin-bottom: 25px;
+    font-size: .89em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 1em;
+}
+
 @media (min-width: 768px) {
     .form-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-template-columns: repeat(1, 1fr);
         gap: 15px;
     }
 
     .main {
-        margin-bottom: -270px;
+        margin-bottom: -245px;
+        padding-left: 10%;
+        padding-right: 10%;
     }
 
-    input, select, textarea {
-        width: 100%; /* Full width in grid layout */
-        margin: 0px auto;
-    }
-
-    textarea {
-        margin-top: 15px;
-        margin-bottom: 25px; /* Adjust margin for textarea */
-    }
-
-    label {
-        justify-content: flex-start; /* Align labels to the left */
-        width: 100%; /* Ensure labels take full width */
+    .form-group {
+        grid-column: span 1; /* Ensure each form-group takes one grid column */
     }
 }
 
-/* Column layout for mobile view */
 @media (max-width: 767px) {
+    
+    .main {
+        margin-bottom: -245px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
     .form-grid {
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
 
-    input, select, textarea {
-        width: 80%; /* Adjust width for mobile view */
+    .form-grid input,
+    .form-grid select,
+    .form-grid textarea {
+        width: 100%;
     }
 
-    label {
-        justify-content: center; /* Center labels in mobile view */
-        width: fit-content; /* Adjust width for mobile view */
+    .form label {
+        justify-content: center;
+        width: fit-content;
     }
 }
+
+.btn{
+    margin-bottom: 250px;
+}
+

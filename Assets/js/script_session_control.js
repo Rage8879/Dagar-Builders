@@ -4,17 +4,12 @@ function isLoggedIn() {
     return localStorage.getItem('userToken') !== null;
 }
 
-// Function to check if the user is logged in
-function isLoggedIn() {
-    // Check if a session token or user information is stored in localStorage or sessionStorage
-    return localStorage.getItem('userToken') !== null;
-}
-
 // JavaScript to toggle the profile popover
 document.addEventListener('DOMContentLoaded', function() {
     const profileButton = document.getElementById('profileButton');
     const profilePopover = document.getElementById('profilePopover');
     const wishlistButton = document.getElementById('wishlistButton');
+    const selloption = document.getElementById('selloption');
 
     profileButton.addEventListener('click', function(event) {
         // Prevent the default action
@@ -32,6 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
     wishlistButton.addEventListener('click', function(event) {
         if (isLoggedIn()) {
             window.location.href = './wishlist.html';
+        } else {
+            window.location.href = './Login.html';
+        }
+    });
+
+    selloption.addEventListener('click', function(event) {
+        if (isLoggedIn()) {
+            window.location.href = './upload_property.html';
         } else {
             window.location.href = './Login.html';
         }
