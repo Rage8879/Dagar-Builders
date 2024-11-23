@@ -5,6 +5,7 @@
 .image-section {
     flex: 2;
     text-align: center;
+    padding: 20px;
 }
 .image-section img {
     max-width: 100%;
@@ -21,19 +22,20 @@
 .details-section p {
     margin: 5px 0;
 }
-.details-section .thumbnails {
+.thumbnails {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
 }
-.details-section .thumbnails img {
+.thumbnails img {
     width: 60px;
     height: 60px;
     border: 1px solid #ddd;
     cursor: pointer;
+    border-radius: 5px;
 }
-.details-section .thumbnails img.selected {
+.thumbnails img.selected {
     border: 2px solid orange;
 }
 .tabs {

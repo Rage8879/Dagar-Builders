@@ -60,6 +60,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <div id="video-section" class="image-section hidden">
                     ${videosHtml}
                 </div>
+                <div class="thumbnails">
+                    ${thumbnailsHtml}
+                </div>
+            </div>
                 <div class="details-section">
                     <h1>${property.name}</h1>
                     <p>Price: ₹ ${property.price.toLocaleString()}</p>
@@ -69,11 +73,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     <p>Bedrooms: ${property.bedrooms}</p>
                     <p>Bathrooms: ${property.bathrooms}</p>
                     <p>${property.description}</p>
-                    <div class="thumbnails">
-                        ${thumbnailsHtml}
-                    </div>
                 </div>
-            </div>
         `;
 
     } catch (error) {

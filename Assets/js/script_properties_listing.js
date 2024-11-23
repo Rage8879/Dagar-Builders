@@ -75,10 +75,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         propertiesToShow.forEach(property => {
             const propertyElement = document.createElement('li');
             propertyElement.innerHTML = `
-                <div class="property-card" onclick="redirectToPropertyInfo('${property.id}')">
+                <div class="property-card" >
                     <figure class="card-banner">
                         <a href="#">
-                            <img src="${property.image}" alt="${property.name}" class="w-100">
+                            <img src="${property.image}" alt="${property.name}" class="w-100" onclick="redirectToPropertyInfo('${property.id}')">
                         </a>
                         <div class="card-badge ${property.status === 'forRent' ? 'green' : 
                                                   property.status === 'forSale' ? 'blue' : 
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                         <div class="card-price">
                             <strong>₹ ${property.price.toLocaleString()}</strong>${property.status === 'forRent' || property.status === 'PG Room' ? '/Month' : ''}
                         </div>
-                        <h3 class="h3 card-title">
+                        <h3 class="h3 card-title" onclick="redirectToPropertyInfo('${property.id}')">
                             <a href="#">${property.name}</a>
                         </h3>
                         <p class="card-text">
