@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const profileButton = document.getElementById('profileButton');
     const profilePopover = document.getElementById('profilePopover');
     const wishlistButton = document.getElementById('wishlistButton');
-    const selloption = document.getElementById('selloption');
+
+    const wishlistLink = document.querySelector('#wishlistLink');  // Assuming the link has id="wishlistLink"
+    const profileLink = document.querySelector('#profileLink');  // Assuming the link has id="profileLink"
+    const sell_link = document.querySelector('#sell_link');
 
     profileButton.addEventListener('click', function(event) {
         // Prevent the default action
@@ -32,7 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    selloption.addEventListener('click', function(event) {
+    sell_link.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default navigation behavior
         if (isLoggedIn()) {
             window.location.href = './upload_property.html';
         } else {
@@ -46,7 +50,26 @@ document.addEventListener('DOMContentLoaded', function() {
             profilePopover.classList.remove('show');
         }
     });
+
+    wishlistLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default navigation behavior
+        if (isLoggedIn()) {
+            window.location.href = './wishlist.html';
+        } else {
+            window.location.href = './Login.html';
+        }
+    });
+
+    profileLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default navigation behavior
+        if (isLoggedIn()) {
+            window.location.href = './account.html';
+        } else {
+            window.location.href = './Login.html';
+        }
+    });
 });
+
 
 
 
