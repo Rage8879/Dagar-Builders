@@ -47,7 +47,7 @@ window.addEventListener("scroll", function () {
 
 document.addEventListener('DOMContentLoaded', async function() {
     let properties = [];  // Declare properties as an empty array to hold loaded data.
-    
+
     try {
         // Fetch properties data from JSON file.
         const response = await fetch('./Assets/json/properties.json');
@@ -72,89 +72,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Slice the properties array to get only the properties for the current page
         const propertiesToShow = properties.slice(startIndex, endIndex);
 
-        propertiesToShow.forEach(property => {
-            const propertyElement = document.createElement('li');
-            propertyElement.innerHTML = `
-                <div class="property-card" >
-                    <figure class="card-banner">
-                        <a href="#">
-                            <img src="${property.image}" alt="${property.name}" class="w-100" onclick="redirectToPropertyInfo('${property.id}')">
-                        </a>
-                        <div class="card-badge ${property.status === 'forRent' ? 'green' : 
-                                                  property.status === 'forSale' ? 'blue' : 
-                                                  property.status === 'sold' ? 'red' : 
-                                                  property.status === 'PG Room' ? 'yellow' : ''}">
-                        ${property.status === 'forRent' ? 'For Rent' :
-                          property.status === 'forSale' ? 'For Sale' :
-                          property.status === 'sold' ? 'Sold' :
-                          property.status === 'PG Room' ? 'PG Room' : ''}
-                        </div>
-                        <div class="banner-actions">
-                            <button class="banner-actions-btn">
-                                <ion-icon name="location"></ion-icon>
-                                <address>${property.location}</address>
-                            </button>
-                            <button class="banner-actions-btn">
-                                <ion-icon name="camera"></ion-icon>
-                                <span>4</span>
-                            </button>
-                            <button class="banner-actions-btn">
-                                <ion-icon name="film"></ion-icon>
-                                <span>2</span>
-                            </button>
-                        </div>
-                    </figure>
-                    <div class="card-content">
-                        <div class="card-price">
-                            <strong>₹ ${property.price.toLocaleString()}</strong>${property.status === 'forRent' || property.status === 'PG Room' ? '/Month' : ''}
-                        </div>
-                        <h3 class="h3 card-title" onclick="redirectToPropertyInfo('${property.id}')">
-                            <a href="#">${property.name}</a>
-                        </h3>
-                        <p class="card-text">
-                            ${property.description}
-                        </p>
-                        <ul class="card-list">
-                            <li class="card-item">
-                                <strong>${property.bedrooms}</strong>
-                                <ion-icon name="bed-outline"></ion-icon>
-                                <span>Bedrooms</span>
-                            </li>
-                            <li class="card-item">
-                                <strong>${property.bathrooms}</strong>
-                                <ion-icon name="man-outline"></ion-icon>
-                                <span>Bathrooms</span>
-                            </li>
-                            <li class="card-item">
-                                <strong>${property.area}</strong>
-                                <ion-icon name="square-outline"></ion-icon>
-                                <span>Square Ft</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <div class="card-footer-actions">
-                            <button class="card-footer-actions-btn">
-                                <ion-icon name="resize-outline"></ion-icon>
-                            </button>
-                            <button class="card-footer-actions-btn">
-                                <ion-icon name="heart-outline"></ion-icon>
-                            </button>
-                            <button class="card-footer-actions-btn">
-                                <ion-icon name="add-circle-outline"></ion-icon>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            propertyList.appendChild(propertyElement);
-        });
+        // Use the shared function to render property cards
+        renderPropertyCards(propertiesToShow, 'propertyList');
     }
-
-    // Function to redirect to property info page
-    window.redirectToPropertyInfo = function(propertyId) {
-        window.location.href = `property_info.html?id=${propertyId}`;
-    };
 
     function updatePagination() {
         const totalPages = Math.ceil(filteredProperties.length / propertiesPerPage);
@@ -195,6 +115,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
         }
 
+        currentPage = 1; // Reset to the first page after applying filters and sorting
         renderProperties(filteredProperties);
         updatePagination();
     }

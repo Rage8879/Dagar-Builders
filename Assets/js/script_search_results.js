@@ -8,101 +8,6 @@ function getQueryParameter(name) {
     return urlParams.get(name);
 }
 
-// Function to render property cards
-function renderPropertyCards(properties) {
-    const propertyList = document.getElementById('propertyList');
-    propertyList.innerHTML = ""; // Clear previous results
-
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const paginatedProperties = properties.slice(start, end);
-
-    if (paginatedProperties.length === 0) {
-        propertyList.innerHTML = "<p>No matching properties found.</p>";
-        return;
-    }
-
-    paginatedProperties.forEach(property => {
-        const propertyElement = document.createElement('li');
-        propertyElement.innerHTML = `
-            <div class="property-card">
-                <figure class="card-banner">
-                    <a href="#">
-                        <img src="${property.image}" alt="${property.name}" class="w-100">
-                    </a>
-                    <div class="card-badge ${property.status === 'forRent' ? 'green' : 
-                                              property.status === 'forSale' ? 'blue' : 
-                                              property.status === 'sold' ? 'red' : 
-                                              property.status === 'PG Room' ? 'yellow' : ''}">
-                    ${property.status === 'forRent' ? 'For Rent' :
-                      property.status === 'forSale' ? 'For Sale' :
-                      property.status === 'sold' ? 'Sold' :
-                      property.status === 'PG Room' ? 'PG Room' : ''}
-                    </div>
-                    <div class="banner-actions">
-                        <button class="banner-actions-btn">
-                            <ion-icon name="location"></ion-icon>
-                            <address>${property.location}</address>
-                        </button>
-                        <button class="banner-actions-btn">
-                            <ion-icon name="camera"></ion-icon>
-                            <span>4</span>
-                        </button>
-                        <button class="banner-actions-btn">
-                            <ion-icon name="film"></ion-icon>
-                            <span>2</span>
-                        </button>
-                    </div>
-                </figure>
-                <div class="card-content">
-                    <div class="card-price">
-                        <strong>₹ ${property.price.toLocaleString()}</strong>${property.status === 'forRent' || property.status === 'PG Room' ? '/Month' : ''}
-                    </div>
-                    <h3 class="h3 card-title">
-                        <a href="#">${property.name}</a>
-                    </h3>
-                    <p class="card-text">
-                        ${property.description}
-                    </p>
-                    <ul class="card-list">
-                        <li class="card-item">
-                            <strong>${property.bedrooms}</strong>
-                            <ion-icon name="bed-outline"></ion-icon>
-                            <span>Bedrooms</span>
-                        </li>
-                        <li class="card-item">
-                            <strong>${property.bathrooms}</strong>
-                            <ion-icon name="man-outline"></ion-icon>
-                            <span>Bathrooms</span>
-                        </li>
-                        <li class="card-item">
-                            <strong>${property.area}</strong>
-                            <ion-icon name="square-outline"></ion-icon>
-                            <span>Square Ft</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <div class="card-footer-actions">
-                        <button class="card-footer-actions-btn">
-                            <ion-icon name="resize-outline"></ion-icon>
-                        </button>
-                        <button class="card-footer-actions-btn">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-                        <button class="card-footer-actions-btn">
-                            <ion-icon name="add-circle-outline"></ion-icon>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
-        propertyList.appendChild(propertyElement);
-    });
-
-    updatePaginationInfo(properties.length);
-}
-
 // Function to load and filter properties based on the query parameter
 async function loadAndSearchProperties() {
     const query = getQueryParameter('query');
@@ -156,7 +61,17 @@ function applyFiltersAndSort() {
 
     filteredAndSortedProperties = properties;
     currentPage = 1; // Reset to first page
-    renderPropertyCards(filteredAndSortedProperties);
+    renderPaginatedPropertyCards(filteredAndSortedProperties); // Render cards to the propertyList container
+}
+
+// Function to render paginated property cards
+function renderPaginatedPropertyCards(properties) {
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const paginatedProperties = properties.slice(start, end);
+
+    renderPropertyCards(paginatedProperties, 'propertyList');
+    updatePaginationInfo(properties.length);
 }
 
 // Function to change the page
@@ -167,7 +82,7 @@ function changePage(direction) {
     if (currentPage < 1) currentPage = 1;
     if (currentPage > totalPages) currentPage = totalPages;
 
-    renderPropertyCards(filteredAndSortedProperties);
+    renderPaginatedPropertyCards(filteredAndSortedProperties); // Render cards to the propertyList container
 }
 
 // Function to update pagination information
@@ -175,6 +90,12 @@ function updatePaginationInfo(totalItems) {
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const pageInfo = document.getElementById('pageInfo');
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+    const prevPageButton = document.getElementById('prevPage');
+    const nextPageButton = document.getElementById('nextPage');
+
+    prevPageButton.disabled = currentPage === 1;
+    nextPageButton.disabled = currentPage === totalPages;
 }
 
 // Event listeners for DOM content loaded, filter and sort changes, and pagination buttons

@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         imageKeys.forEach((key, index) => {
             imagesHtml += `
-                <img id="main-image" alt="${property.name}" height="400" src="${property[key]}" width="600" class="${index === 0 ? '' : 'hidden'}">
+                <img id="main-image-${index}" alt="${property.name}" height="400" src="${property[key]}" width="600" class="${index === 0 ? '' : 'hidden'}">
             `;
         });
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         let thumbnailsHtml = '';
         imageKeys.forEach((key, index) => {
             thumbnailsHtml += `
-                <img alt="Thumbnail ${index + 1}" height="60" src="${property[key]}" width="60" onclick="changeImage(this)" class="${index === 0 ? 'selected' : ''}">
+                <img alt="Thumbnail ${index + 1}" height="60" src="${property[key]}" width="60" onclick="changeImage(${index})" class="${index === 0 ? 'selected' : ''}">
             `;
         });
 
@@ -53,9 +53,11 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <div id="videos-tab" onclick="showVideos()">VIDEOS</div>
                 <div id="images-tab" class="active" onclick="showImages()">IMAGES</div>
             </div>
-            <div class="container">
+            <div class="container-main">
                 <div id="image-section" class="image-section">
+                    <button class="nav-button prev-button" onclick="navigateImage(-1)">&#10094;</button>
                     ${imagesHtml}
+                    <button class="nav-button next-button" onclick="navigateImage(1)">&#10095;</button>
                 </div>
                 <div id="video-section" class="image-section hidden">
                     ${videosHtml}
@@ -89,19 +91,25 @@ function getQueryParameter(name) {
 }
 
 // Function to change the main image
-function changeImage(element) {
+function changeImage(index) {
     // Remove 'selected' class from all thumbnails
     var thumbnails = document.querySelectorAll('.thumbnails img');
-    thumbnails.forEach(function(thumbnail) {
+    thumbnails.forEach(function(thumbnail, i) {
         thumbnail.classList.remove('selected');
+        document.getElementById(`main-image-${i}`).classList.add('hidden');
     });
 
     // Add 'selected' class to the clicked thumbnail
-    element.classList.add('selected');
+    thumbnails[index].classList.add('selected');
+    document.getElementById(`main-image-${index}`).classList.remove('hidden');
+}
 
-    // Change the main image source to the clicked thumbnail's source
-    var mainImage = document.getElementById('main-image');
-    mainImage.src = element.src;
+// Function to navigate images
+function navigateImage(direction) {
+    var thumbnails = document.querySelectorAll('.thumbnails img');
+    var currentIndex = Array.from(thumbnails).findIndex(thumbnail => thumbnail.classList.contains('selected'));
+    var newIndex = (currentIndex + direction + thumbnails.length) % thumbnails.length;
+    changeImage(newIndex);
 }
 
 // Function to show videos tab

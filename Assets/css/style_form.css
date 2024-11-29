@@ -1,3 +1,8 @@
+/*-----------------------------------*\
+  #RESET STYLES
+\*-----------------------------------*/
+
+/* Remove spin buttons from number inputs */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;
@@ -6,14 +11,20 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 
+/*-----------------------------------*\
+  #ROOT VARIABLES
+\*-----------------------------------*/
+
 :root {
     --ff-poppins: 'Poppins', sans-serif;
     --cultured-2: hsl(192, 24%, 96%);
 }
 
+/*-----------------------------------*\
+  #MAIN CONTAINER
+\*-----------------------------------*/
+
 .main {
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     min-height: 100vh;
@@ -24,6 +35,10 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 20px;
     margin-bottom: -90px;
 }
+
+/*-----------------------------------*\
+  #FORM STYLES
+\*-----------------------------------*/
 
 .form {
     text-align: center;
@@ -53,26 +68,25 @@ input[type=number]::-webkit-outer-spin-button {
 .form-group {
     display: flex;
     flex-direction: column;
-    width: 100%; /* Full width in grid layout */
-    margin: 0px 0; /* Adjust margin for spacing */
+    width: 100%; 
 }
 
 .form-group label {
-    font-size: 1em; /* Normal font size for labels */
-    margin-bottom: 5px; /* Add some margin for spacing */
+    font-size: 1em;
+    margin-bottom: 5px; 
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     font-family: var(--ff-poppins);
-    width: 100%; /* Full width in grid layout */
+    width: 100%; 
     height: 40px;
     background: #e0dede;
     padding: 12px;
     border: none;
     outline: none;
-    border-radius: 6px;
+    border-radius: 2px;
     font-size: .9em;
 }
 
@@ -83,18 +97,12 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: .89em;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    font-size: 1em;
-}
+/*-----------------------------------*\
+  #RESPONSIVE STYLES
+\*-----------------------------------*/
 
 @media (min-width: 768px) {
     .form-grid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
         gap: 15px;
     }
 
@@ -102,10 +110,6 @@ form {
         margin-bottom: -245px;
         padding-left: 10%;
         padding-right: 10%;
-    }
-
-    .form-group {
-        grid-column: span 1; /* Ensure each form-group takes one grid column */
     }
 }
 
@@ -138,4 +142,3 @@ form {
 .btn{
     margin-bottom: 250px;
 }
-
