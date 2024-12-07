@@ -16,6 +16,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./Assets/css/style_properties_listing.css">
+  <link rel="stylesheet" href="./Assets/css/style.css">
 
   <!-- 
     - google font link
@@ -152,26 +153,30 @@
       <section class="property" id="property">
 
         <div class="filters">
-          <label for="filterStatus">Status:</label>
-          <select id="filterStatus">
-              <option value="all">All</option>
-              <option value="forSale">For Sale</option>
-              <option value="forRent">For Rent</option>
-              <option value="PG Room">PG Room</option>
-              <option value="sold">Sold</option>
-          </select>
-          <label for="sortBy">Sort By:</label>
-          <select id="sortBy">
-              <option value="none">None</option>
-              <option value="priceAsc">Price (Low to High)</option>
-              <option value="priceDesc">Price (High to Low)</option>
-              <option value="areaAsc">Area (Small to Large)</option>
-              <option value="areaDesc">Area (Large to Small)</option>
-          </select>
-      </div>
-
-      <ul id="propertyList" class="propertyList"></ul>
-      </section>
+          <div class="category">
+            <h2>Category :</h2>
+            <ul id="filterStatus">
+                <li><input type="checkbox" value="forSale"/> For Sale</li>
+                <li><input type="checkbox" value="forRent"/> For Rent</li>
+                <li><input type="checkbox" value="PG Room"/> PG Room</li>
+                <li><input type="checkbox" value="commercial"/> Commercial</li>
+                <li><input type="checkbox" value="sold"/> Sold</li>
+            </ul>
+          </div>
+        
+          <div class="sortBy">
+            <h2 for="sortBy">Sort By :</h2>
+            <select id="sortBy">
+                <option value="none">None</option>
+                <option value="priceAsc">Price (Low to High)</option>
+                <option value="priceDesc">Price (High to Low)</option>
+                <option value="areaAsc">Area (Small to Large)</option>
+                <option value="areaDesc">Area (Large to Small)</option>
+            </select>
+          </div>
+        </div>
+        <ul id="propertyList" class="propertyList"></ul>
+        </section>
 
 
       <div class="pagination">

@@ -56,6 +56,8 @@ input[type=number]::-webkit-outer-spin-button {
     transition: .5s ease-in-out;
     font-family: var(--ff-poppins);
     width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-grid {
@@ -74,6 +76,7 @@ input[type=number]::-webkit-outer-spin-button {
 .form-group label {
     font-size: 1em;
     margin-bottom: 5px; 
+    margin-left: 0%;
 }
 
 .form-group input,
@@ -95,6 +98,10 @@ input[type=number]::-webkit-outer-spin-button {
     resize: none;
     margin-bottom: 25px;
     font-size: .89em;
+}
+
+.btn {
+    margin-left: auto;
 }
 
 /*-----------------------------------*\

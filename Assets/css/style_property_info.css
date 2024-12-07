@@ -1,30 +1,32 @@
+main {
+    padding: 20px;
+    background-color: var(--cultured-2);
+}
+
 .container-main {
     display: flex;
     flex-direction: column;
-    padding: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
     gap: 20px;
 }
 
 @media (min-width: 768px) {
     .container-main {
-        flex-direction: row;
-        gap: 20px;
+        display: block;
+        padding-left: 180px;
+        padding-right: 180px;
     }
 }
 
 .image-section {
     flex: 2;
     text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
+    border-radius: 2px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 300px; /* Fixed height */
-    width: 400px; /* Fixed width for all views */
+    height: auto; /* Fixed height */
+    width: auto; /* Fixed width for all views */
     overflow: hidden; /* Ensure content fits within the fixed size */
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     background-color: #f0f0f0; /* Background color for leftover space */
     margin: 0 auto; /* Center align */
@@ -35,7 +37,7 @@
     width: 100%; /* Maintain aspect ratio */
     height: 100%; /* Maintain aspect ratio */
     object-fit: cover; /* Ensure the image covers the entire section */
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 .nav-button {
@@ -47,7 +49,7 @@
     border: none;
     padding: 10px;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 2px;
     z-index: 1;
 }
 
@@ -65,10 +67,8 @@
 
 .details-section {
     flex: 1;
+    border-bottom: 1px solid #ddd;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 767px) {
@@ -102,7 +102,7 @@
     height: 60px;
     border: 1px solid #ddd;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 2px;
     transition: transform 0.3s;
 }
 
@@ -148,12 +148,6 @@
     padding: 20px;
     gap: 20px;
     background-color: #f9f9f9;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-@media (min-width: 768px) {
-    .property-info-container {
-        flex-direction: column;
-    }
 }

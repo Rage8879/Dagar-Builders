@@ -7,6 +7,13 @@ function renderPropertyCards(properties, containerId) {
 
     properties.forEach(property => {
         const propertyElement = document.createElement('li');
+
+        // Count the number of images and videos
+        const imageKeys = Object.keys(property).filter(key => key.startsWith('image'));
+        const videoKeys = Object.keys(property).filter(key => key.startsWith('video'));
+        const imageCount = imageKeys.length;
+        const videoCount = videoKeys.length;
+
         propertyElement.innerHTML = `
             <div class="property-card">
                 <figure class="card-banner">
@@ -29,11 +36,11 @@ function renderPropertyCards(properties, containerId) {
                         </button>
                         <button class="banner-actions-btn">
                             <ion-icon name="camera"></ion-icon>
-                            <span>4</span>
+                            <span>${imageCount}</span>
                         </button>
                         <button class="banner-actions-btn">
                             <ion-icon name="film"></ion-icon>
-                            <span>2</span>
+                            <span>${videoCount}</span>
                         </button>
                     </div>
                 </figure>
@@ -68,13 +75,10 @@ function renderPropertyCards(properties, containerId) {
                 <div class="card-footer">
                     <div class="card-footer-actions">
                         <button class="card-footer-actions-btn">
-                            <ion-icon name="resize-outline"></ion-icon>
-                        </button>
-                        <button class="card-footer-actions-btn">
                             <ion-icon name="heart-outline"></ion-icon>
                         </button>
                         <button class="card-footer-actions-btn">
-                            <ion-icon name="add-circle-outline"></ion-icon>
+                            <ion-icon name="call-outline"></ion-icon>
                         </button>
                     </div>
                 </div>
@@ -86,5 +90,5 @@ function renderPropertyCards(properties, containerId) {
 
 // Function to redirect to property info page
 window.redirectToPropertyInfo = function(propertyId) {
-    window.location.href = `property_info.html?id=${propertyId}`;
+    window.location = `property_info.html?id=${propertyId}`;
 };

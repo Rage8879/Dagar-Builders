@@ -36,8 +36,8 @@
         "status": "sold",
         "image": "./Assets/images/property1.jpg",
         "location": "South Extension, New Delhi",
-        "bedrooms": 3,
-        "bathrooms": 2,
+        "bedrooms": 0,
+        "bathrooms": 0,
         "description": "A compact studio apartment perfect for bachelors or young professionals. Located in a prime residential neighborhood with easy access to metro."
     },
     {

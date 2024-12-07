@@ -1,6 +1,7 @@
 let currentPage = 1;
 const itemsPerPage = 8;
 let filteredAndSortedProperties = [];
+let properties = [];
 
 // Function to get the search query parameter from the URL
 function getQueryParameter(name) {
@@ -16,7 +17,7 @@ async function loadAndSearchProperties() {
     try {
         const response = await fetch('./Assets/json/properties.json');
         if (!response.ok) throw new Error('Failed to load properties data');
-        const properties = await response.json();
+        properties = await response.json();
 
         // Split the query into individual keywords
         const keywords = query.toLowerCase().split(' ');
@@ -38,39 +39,51 @@ async function loadAndSearchProperties() {
 
 // Function to apply filters and sorting
 function applyFiltersAndSort() {
-    const statusFilter = document.getElementById('filterStatus').value;
     const sortBy = document.getElementById('sortBy').value;
+    const filterStatus = Array.from(document.querySelectorAll('#filterStatus input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
 
     let properties = JSON.parse(localStorage.getItem('filteredProperties')) || [];
 
     // Apply status filter
-    if (statusFilter !== 'all') {
-        properties = properties.filter(property => property.status === statusFilter);
+    if (filterStatus.length === 0) {
+        filteredAndSortedProperties = properties; // No filters applied, show all properties
+    } else {
+        filteredAndSortedProperties = properties.filter(property => 
+            filterStatus.includes(property.status)
+        );
     }
 
     // Apply sorting
     if (sortBy === 'priceAsc') {
-        properties.sort((a, b) => a.price - b.price);
+        filteredAndSortedProperties.sort((a, b) => a.price - b.price);
     } else if (sortBy === 'priceDesc') {
-        properties.sort((a, b) => b.price - a.price);
+        filteredAndSortedProperties.sort((a, b) => b.price - a.price);
     } else if (sortBy === 'areaAsc') {
-        properties.sort((a, b) => a.area - b.area);
+        filteredAndSortedProperties.sort((a, b) => a.area - b.area);
     } else if (sortBy === 'areaDesc') {
-        properties.sort((a, b) => b.area - a.area);
+        filteredAndSortedProperties.sort((a, b) => b.area - a.area);
     }
 
-    filteredAndSortedProperties = properties;
     currentPage = 1; // Reset to first page
     renderPaginatedPropertyCards(filteredAndSortedProperties); // Render cards to the propertyList container
 }
 
 // Function to render paginated property cards
 function renderPaginatedPropertyCards(properties) {
+    const propertyList = document.getElementById('propertyList');
+    propertyList.innerHTML = ""; // Clear previous results
+
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
     const paginatedProperties = properties.slice(start, end);
 
-    renderPropertyCards(paginatedProperties, 'propertyList');
+    if (paginatedProperties.length === 0) {
+        propertyList.innerHTML = "<p>No matching properties found.</p>";
+        return;
+    }
+
+    // Use the shared function to render property cards
+    window.renderPropertyCards(paginatedProperties, 'propertyList');
     updatePaginationInfo(properties.length);
 }
 

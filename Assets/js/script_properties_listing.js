@@ -90,12 +90,16 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     function applyFiltersAndSort() {
         const sortBy = document.getElementById('sortBy').value;
-        const filterStatus = document.getElementById('filterStatus').value;
+        const filterStatus = Array.from(document.querySelectorAll('#filterStatus input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
 
         // Apply filtering based on status
-        filteredProperties = properties.filter(property => 
-            (filterStatus === 'all' || property.status === filterStatus)
-        );
+        if (filterStatus.length === 0) {
+            filteredProperties = properties; // No filters applied, show all properties
+        } else {
+            filteredProperties = properties.filter(property => 
+                filterStatus.includes(property.status)
+            );
+        }
 
         // Apply sorting if sortBy is not "none"
         if (sortBy !== 'none') {
@@ -126,7 +130,9 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Event listeners for filters and pagination
     document.getElementById('sortBy').addEventListener('change', applyFiltersAndSort);
-    document.getElementById('filterStatus').addEventListener('change', applyFiltersAndSort);
+    document.querySelectorAll('#filterStatus input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', applyFiltersAndSort);
+    });
     document.getElementById('prevPage').addEventListener('click', function() {
         if (currentPage > 1) {
             currentPage--;

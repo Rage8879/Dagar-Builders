@@ -872,28 +872,32 @@
   .property-card .card-item span { margin-top: 5px; }
   
   .card-footer {
-    padding: 15px;
+    padding: 0px;
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    gap: 0px;
   }
 
   .card-footer-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
   }
   
   .card-footer-actions-btn {
-    background: var(--cultured-2);
     color: var(--cadet);
-    width: 35px;
-    height: 35px;
-    display: grid;
-    place-items: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     font-size: 18px;
+  }
+
+  .card-footer-actions-btn ion-icon {
+    scale: 1.1;
   }
   
   .card-footer-actions-btn:is(:hover, :focus) {
@@ -1532,7 +1536,7 @@
   
     .property-card .card-content { padding-inline: 30px; }
   
-    .card-footer { padding: 20px 30px 30px; }
+    .card-footer { padding: 0px; }
   
   
   
