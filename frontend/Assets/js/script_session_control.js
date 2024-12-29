@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isLoggedIn()) {
             window.location.href = './wishlist.html';
         } else {
-            window.location.href = './Login.html';
+            window.location.href = './login.html';
         }
     });
 
