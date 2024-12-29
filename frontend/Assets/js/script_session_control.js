@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             profilePopover.classList.toggle('show');
         } else {
             // Redirect to the login page if the user is not logged in
-            window.location.href = './Login.html';
+            window.location.href = './login.html';
         }
     });
     
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isLoggedIn()) {
             window.location.href = './wishlist.html';
         } else {
-            window.location.href = './Login.html';
+            window.location.href = './login.html';
         }
     });
 
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isLoggedIn()) {
             window.location.href = './account.html';
         } else {
-            window.location.href = './Login.html';
+            window.location.href = './login.html';
         }
     });
 });
