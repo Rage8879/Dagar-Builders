@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isLoggedIn()) {
             window.location.href = './upload_property.html';
         } else {
-            window.location.href = './Login.html';
+            window.location.href = './login.html';
         }
     });
 
